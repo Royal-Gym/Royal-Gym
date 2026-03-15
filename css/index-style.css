@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Roboto:wght@400;700&display=swap");
+
+:root {
+	--primary: #1a0a2e;
+	/* --primary-tranparent: #1a0a2e; */
+	--accent: #d4af37;
+	--bg: #f5f0ff;
+	--bg2: #212133;
+	--bg-darker: #bfbbc9;
+	--text-dark: #100618;
+	--text_light: #fff;
+	--admin-primary: #8b0000;
+	--admin-accent: #d4af37;
+	--admin-bg: #f5f0f0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text-dark);
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	width: 100%;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background-color: var(--primary);
+	padding: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Gym name and logo */
+header>a {
+	color: var(--accent);
+	font-family: "Playfair Display", sans-serif;
+	font-style: italic;
+	font-size: 2rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* Logo */
+header img {
+	width: 3rem;
+	height: 3rem;
+}
+
+/* navigation list */
+header nav ul {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+/* navigation buttons */
+header nav ul li a {
+	padding: 0.8rem;
+	color: var(--accent);
+	border: 0.2rem solid var(--accent);
+	border-radius: 1.5rem;
+	transition:
+		background-color 0.2s linear,
+		color 0.2s linear,
+		outline 0.1s linear;
+}
+
+/* buttons animation */
+header nav ul li a:hover,
+.hero a:hover {
+	background-color: var(--accent);
+	color: var(--primary);
+	outline: 0.3rem solid var(--accent);
+}
+
+a {
+	text-decoration: none;
+}
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	background-image:
+		linear-gradient(rgba(26, 10, 46, 1), rgba(0, 0, 0, 0.6) 20%),
+		url("../assets/images/Hero\ section\ background.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 60vh;
+	padding: 2rem;
+	color: var(--text_light);
+}
+
+.hero>h1 {
+	font-family: "Playfair Display", sans-serif;
+	font-size: 5rem;
+	font-style: italic;
+	color: var(--accent);
+}
+
+.tagline {
+	padding: 2rem;
+}
+
+/* the button */
+.hero a {
+	padding: 1.5rem 3rem;
+	color: var(--text_light);
+	background-color: var(--primary);
+	border: 0.2rem solid var(--accent);
+	border-radius: 3rem;
+	transition:
+		background-color 0.2s linear,
+		color 0.2s linear,
+		outline 0.1s linear;
+}
+
+.facilities {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 4rem 2rem;
+}
+
+.facilities h2 {
+	font-family: "Playfair Display", sans-serif;
+	font-style: italic;
+	color: var(--accent);
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.facilities-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2rem;
+}
+
+.facility-card {
+	background-color: var(--primary);
+	color: var(--text_light);
+	padding: 2rem;
+	border: 0.2rem solid var(--accent);
+	border-radius: 3rem;
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	text-align: center;
+	transition: scale 0.1s linear;
+}
+
+.facility-card:hover {
+	scale: 1.05;
+}
+
+.facility-card h3 {
+	color: var(--accent);
+	font-size: 2rem;
+}
+
+.facility-card img {
+	width: 100%;
+	margin-top: 0.3rem;
+	border-radius: 2rem;
+}
+
+.facility-card:last-child {
+	grid-column: 2 / 3;
+}
+
+.membership {
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+
+	text-align: center;
+	background-color: var(--primary);
+	padding: 2rem;
+}
+
+.membership h2 {
+	color: var(--accent);
+	font-family: "Playfair Display", sans-serif;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.membership-card h3 {
+	font-family: "Playfair Display", sans-serif;
+	color: var(--accent);
+	font-size: 2rem;
+}
+
+.membership-cards-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.membership-card {
+	background-color: var(--bg);
+	color: var(--text-dark);
+	padding: 2rem;
+	border: 0.2rem solid var(--accent);
+	border-radius: 4rem;
+	min-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: scale 0.1s linear;
+	background: repeating-linear-gradient(45deg,
+			var(--bg) 0px,
+			var(--bg) 20px,
+			var(--bg-darker) 20px,
+			var(--bg-darker) 40px);
+}
+
+.membership-card:hover {
+	scale: 1.05;
+}
+
+.membership-card .price {
+	padding: 1rem;
+	width: 10rem;
+	border: var(--accent) solid 0.3rem;
+	border-radius: 5rem;
+	background-color: var(--primary);
+	color: var(--accent);
+}
+
+.membership-card dl {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 2rem;
+}
+
+/* the pulse */
+/*
+
+.hero a::before,
+.hero a::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 2px solid var(--accent);
+  border-radius: inherit;
+  animation: pulseOut 1s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes pulseOut{
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+ */

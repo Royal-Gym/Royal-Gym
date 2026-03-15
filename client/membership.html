@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Royale Gym — Membership</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>Royale Gym</h1>
+      <p>Luxury fitness membership — gold service, elite results.</p>
+    </div>
+  </header>
+
+  <section aria-labelledby="plans-heading">
+    <h2 id="plans-heading" class="sr-only">Membership Plans</h2>
+
+    <div class="plans-grid">
+      <article class="plan-card" aria-labelledby="bronze-title" role="article">
+        <div class="plan-title">
+          <h3 id="bronze-title">Bronze</h3>
+          <div class="plan-price">4000DA<span class="price-unit">/month</span></div>
+        </div>
+
+        <ul class="plan-features">
+          <li>unlimited Access to premium equipment</li>
+          <li>Free water and energy drinks </li>
+          <li>Access to equipped showers</li>
+        </ul>
+
+        <dl>
+          <dt>Storage</dt><dd>Locker access</dd>
+          <dt>Support</dt><dd>Standard support</dd>
+        </dl>
+
+        <div class="plan-cta">
+          <span class="muted">Ideal for new members</span>
+          <button class="btn-ghost" aria-label="Choose Bronze">Choose</button>
+        </div>
+      </article>
+
+      <article class="plan-card" aria-labelledby="silver-title" role="article">
+
+        <div class="plan-title">
+          <h3 id="silver-title">Silver</h3>
+          <div class="plan-price">6000DA<span class="price-unit">/month</span></div>
+        </div>
+
+        <ul class="plan-features">
+          <li>All Bronze benefits</li>
+          <li>Access to sauna and steam rooms</li>
+          <li>Meal plan by a professional nutritionist</li>
+        </ul>
+
+        <dl>
+          <dt>Storage</dt><dd>Premium locker</dd>
+          <dt>Support</dt><dd>Priority support</dd>
+        </dl>
+
+        <div class="plan-cta">
+          <span class="muted">Best balance of value & perks</span>
+          <button class="btn-ghost" aria-label="Choose Silver">Choose</button>
+        </div>
+      </article>
+
+      <article class="plan-card" aria-labelledby="gold-title" role="article">
+        <div class="plan-title">
+          <h3 id="gold-title">Gold</h3>
+          <div class="plan-price">15000DA<span class="price-unit">/month</span></div>
+        </div>
+
+        <ul class="plan-features">
+          <li>All Silver benefits</li>
+          <li>Monthly 1-on-1 coaching</li>
+          <li>Recovery therapists and massage services</li>
+        </ul>
+
+        <dl>
+          <dt>Storage</dt><dd>Private locker + towel service</dd>
+          <dt>Support</dt><dd>Dedicated concierge</dd>
+        </dl>
+
+        <div class="plan-cta">
+          <span class="muted">For members who demand the best</span>
+          <button class="btn-ghost" aria-label="Choose Gold">Choose</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="register" aria-labelledby="register-heading">
+    <div>
+      <h2 id="register-heading">Join Royale Gym</h2>
+
+      <form action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <div class="row">
+            <div class="col">
+              <label for="fullname">Full Name</label>
+              <input id="fullname" name="fullname" type="text" placeholder="Jane Doe" required />
+            </div>
+
+            <div class="col">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" required />
+            </div>
+          </div>
+
+          <div class="row mt-12">
+            <div class="col">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555" />
+            </div>
+
+            <div class="col">
+              <label for="dob">Date of Birth</label>
+              <input id="dob" name="dob" type="date" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="mt-12">
+          <legend>Choose a Plan</legend>
+
+          <div class="custom-controls" role="radiogroup" aria-label="Membership plans">
+            <label class="custom" title="Bronze">
+              <input type="radio" name="plan" value="bronze" required />
+              <span class="control radio" aria-hidden="true"></span>
+              <span>Bronze</span>
+            </label>
+
+            <label class="custom" title="Silver">
+              <input type="radio" name="plan" value="silver" checked />
+              <span class="control radio" aria-hidden="true"></span>
+              <span>Silver</span>
+            </label>
+
+            <label class="custom" title="Gold">
+              <input type="radio" name="plan" value="gold" />
+              <span class="control radio" aria-hidden="true"></span>
+              <span>Gold</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="mt-12">
+          <legend>Terms</legend>
+
+          <label class="custom terms">
+            <input type="checkbox" name="terms" required />
+            <span class="control" aria-hidden="true"></span>
+            <span>I agree to the terms &amp; conditions</span>
+          </label>
+        </fieldset>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-ghost">Register &amp; Continue</button>
+          <div class="muted">You will be directed to secure payment.</div>
+        </div>
+
+        <div class="payments" aria-label="Accepted payment methods">
+          <div class="pay">CIB</div>
+          <div class="pay">EDDAHABIA</div>
+        </div>
+      </form>
+    </div>
+
+    <aside class="info-block" aria-label="Membership info">
+      <h3>Payment & Concierge</h3>
+      <p class="muted">Royale Gym offers luxury service and flexible billing. Subscriptions auto-renew unless cancelled.</p>
+
+      <hr class="sep" />
+
+      <p class="help-text">Need assistance?</p>
+      <address class="address">
+        royalegym@example.com<br/>+213 665 231 823
+      </address>
+    </aside>
+  </section>
+
+</body>
+</html>

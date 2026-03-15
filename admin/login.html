@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Admin Login | Royale Gym</title>
+	</head>
+
+	<body>
+		<main>
+			<section id="login-container">
+				<header>
+					<h1>Royale Gym</h1>
+					<h2>Administrator Access</h2>
+					<p>Please enter your credentials to manage the system.</p>
+				</header>
+
+				<form action="admin-dashboard.html" method="POST">
+					<fieldset>
+						<legend>Login Details</legend>
+						<div class="form-group">
+							<label for="admin-username">Username:</label>
+							<input
+								type="text"
+								id="admin-username"
+								name="username"
+								placeholder="Enter your username"
+								required
+							/>
+						</div>
+
+						<div class="form-group">
+							<label for="admin-password">Password:</label>
+							<input
+								type="password"
+								id="admin-password"
+								name="password"
+								placeholder="Enter your password"
+								required
+							/>
+						</div>
+
+						<div
+							id="error-display"
+							style="color: #ff0000; margin-bottom: 10px"
+						></div>
+						<button type="submit">Login to Dashboard</button>
+					</fieldset>
+				</form>
+
+				<footer>
+					<p>
+						Not an admin?
+						<a href="../index.html">Return to Home Page</a>
+					</p>
+				</footer>
+			</section>
+		</main>
+	</body>
+</html>
