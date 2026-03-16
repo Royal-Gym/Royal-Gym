@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Roboto:wght@400;700&display=swap");
+
+:root {
+    --primary: #1a0a2e;
+    /* --primary-tranparent: #1a0a2e; */
+    --accent: #d4af37;
+    --bg: #f5f0ff;
+    --bg2: #212133;
+    --bg-darker: #bfbbc9;
+    --text-dark: #100618;
+    --text_light: #fff;
+    --admin-primary: #8b0000;
+    --admin-accent: #d4af37;
+    --admin-bg: #f5f0f0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-dark);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    width: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--primary);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Gym name and logo */
+header>a {
+    color: var(--accent);
+    font-family: "Playfair Display", sans-serif;
+    font-style: italic;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Logo */
+header img {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* navigation list */
+header nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+/* navigation buttons */
+header nav ul li a {
+    padding: 0.8rem;
+    color: var(--accent);
+    border: 0.2rem solid var(--accent);
+    border-radius: 1.5rem;
+    transition:
+        background-color 0.2s linear,
+        color 0.2s linear,
+        outline 0.1s linear;
+}
