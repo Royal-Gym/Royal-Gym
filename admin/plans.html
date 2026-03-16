@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans Management</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/plans.css">
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>Royale Gym</h1>
+            <p>Admin — Membership Plans Management</p>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <main>
+            <section class="section-header">
+                <h2>Membership Plans</h2>
+                <p>Manage your gym's membership plans and offerings</p>
+            </section>
+
+            <!-- Existing Plans Table -->
+            <section class="plans-table-section">
+                <h3>Current Plans</h3>
+                <table class="plans-table">
+                    <thead>
+                        <tr>
+                            <th>Plan Name</th>
+                            <th>Price</th>
+                            <th>Duration</th>
+                            <th>Features</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bronze</td>
+                            <td>4000 DA</td>
+                            <td>1 month</td>
+                            <td>Equipment access, Water/Drinks, Showers</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Silver</td>
+                            <td>6000 DA</td>
+                            <td>1 month</td>
+                            <td>All Bronze + Sauna + Nutrition Plan</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gold</td>
+                            <td>15000 DA</td>
+                            <td>1 month</td>
+                            <td>All Silver + Coaching + Massage Services</td>
+                            <td>
+                                <button class="btn-edit">Edit</button>
+                                <button class="btn-delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Add New Plan Form -->
+            <section class="add-plan-section">
+                <h3>Add New Plan</h3>
+                <form class="add-plan-form" action="#" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="plan-name">Plan Name</label>
+                        <input id="plan-name" name="plan-name" type="text" placeholder="e.g., Platinum" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan-price">Price (DA)</label>
+                        <input id="plan-price" name="plan-price" type="number" placeholder="e.g., 20000" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan-duration">Duration</label>
+                        <select id="plan-duration" name="plan-duration" required>
+                            <option value="">Select duration</option>
+                            <option value="1-month">1 Month</option>
+                            <option value="3-months">3 Months</option>
+                            <option value="6-months">6 Months</option>
+                            <option value="1-year">1 Year</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="plan-description">Description</label>
+                        <textarea id="plan-description" name="plan-description" placeholder="List features and benefits separated by commas" required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Add Plan</button>
+                        <button type="reset" class="btn-cancel">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Royale Gym Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
