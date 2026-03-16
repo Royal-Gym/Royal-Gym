@@ -43,7 +43,7 @@ header {
 }
 
 /* Gym name and logo */
-header>a {
+header > a {
 	color: var(--accent);
 	font-family: "Playfair Display", sans-serif;
 	font-style: italic;
@@ -69,23 +69,32 @@ header nav ul {
 
 /* navigation buttons */
 header nav ul li a {
-	padding: 0.8rem;
+	color: inherit;
+}
+
+header nav ul li {
 	color: var(--accent);
+	padding: 0.8rem;
 	border: 0.2rem solid var(--accent);
 	border-radius: 1.5rem;
-	transition:
-		background-color 0.2s linear,
-		color 0.2s linear,
-		outline 0.1s linear;
+	background-color: var(--primary);
 }
 
 /* buttons animation */
-header nav ul li a:hover,
+header nav ul li:hover,
 .hero a:hover {
+	transition: scale 0.1s linear;
 	background-color: var(--accent);
 	color: var(--primary);
-	outline: 0.3rem solid var(--accent);
 }
+
+header nav ul li:hover,
+.hero a:hover {
+	scale: 1.1;
+	box-shadow: 0rem 0.1rem 2rem 0.1rem var(--bg);
+}
+
+/* ------------------------- */
 
 a {
 	text-decoration: none;
@@ -107,7 +116,7 @@ a {
 	color: var(--text_light);
 }
 
-.hero>h1 {
+.hero > h1 {
 	font-family: "Playfair Display", sans-serif;
 	font-size: 5rem;
 	font-style: italic;
@@ -161,11 +170,15 @@ a {
 	font-family: "Roboto", sans-serif;
 	font-size: 1rem;
 	text-align: center;
-	transition: scale 0.1s linear;
+	transition:
+		scale 0.1s linear,
+		box-shadow 0.1s linear;
+	box-shadow: 0rem 0rem 2rem 1rem var(--bg-darker);
 }
 
 .facility-card:hover {
 	scale: 1.05;
+	box-shadow: 0rem 0rem 1rem 1.2rem var(--bg-darker);
 }
 
 .facility-card h3 {
@@ -207,8 +220,8 @@ a {
 }
 
 .membership-cards-container {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	justify-content: center;
 	gap: 2rem;
 }
@@ -219,16 +232,17 @@ a {
 	padding: 2rem;
 	border: 0.2rem solid var(--accent);
 	border-radius: 4rem;
-	min-width: 30rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	transition: scale 0.1s linear;
-	background: repeating-linear-gradient(45deg,
-			var(--bg) 0px,
-			var(--bg) 20px,
-			var(--bg-darker) 20px,
-			var(--bg-darker) 40px);
+	background: repeating-linear-gradient(
+		45deg,
+		var(--bg) 0px,
+		var(--bg) 20px,
+		var(--bg-darker) 20px,
+		var(--bg-darker) 40px
+	);
 }
 
 .membership-card:hover {
