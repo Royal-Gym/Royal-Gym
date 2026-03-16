@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainers | Gym Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: z#eeeaea;
+            color: #eae8e8;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            color: rgb(248, 241, 241);
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+
+        nav a {
+            color: #fffdfd;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: rgb(255, 221, 87);
+        }
+
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #f5c240;
+            font-size: 2rem;
+        }
+
+        section p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .trainer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        article {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(156, 144, 144, 0.2);
+        }
+
+        figure img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 15px 0 10px;
+            color: #ffffff;
+        }
+
+        article h3 {
+            color: #f7de3b;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        article p {
+            padding: 0 15px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        article a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background-color: #021d4f;
+            color: rgb(243, 222, 222);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        article a:hover {
+            background-color: #312a1c;
+            color: #f8e8e8;
+        }
+
+        .work-with-us {
+            background: rgb(0, 0, 0);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(249, 248, 248, 0.08);
+            text-align: center;
+        }
+
+        .work-with-us a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #161785;
+            color: #070809;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .work-with-us a:hover {
+            background: #ffffff;
+            color: rgb(16, 8, 8);
+        }
+
+        address {
+            background: #040508;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-style: normal;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #0d1b2a;
+            color: rgb(236, 228, 228);
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Professional Trainers</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="membership.html">Membership</a>
+            <a href="trainers.html">Trainers</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Meet Our Trainers</h2>
+            <p>Our gym has experienced trainers who specialize in different fitness areas to help you achieve your goals.</p>
+
+            <div class="trainer-container">
+                <article>
+                    <figure>
+                        <img src="https://davidcosta.fr/wp-content/uploads/2013/10/coaching-1-scaled.jpg" alt="Photo of trainer John Carter">
+                        <figcaption>Yacine alikhouja </figcaption>
+                    </figure>
+                    <h3>Specialty: Strength Training</h3>
+                    <p><strong>Years of Experience:</strong> 8 years</p>
+                    <p>Yacine helps members build muscle, improve strength, and follow proper workout techniques.</p>
+                    <a href="#">View Full Profile</a>
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="https://mustcoach.com/wp-content/uploads/2017/01/yoga_01.jpg" alt="Photo of trainer Sarah Lee">
+                        <figcaption>Maya Bounah</figcaption>
+                    </figure>
+                    <h3>Specialty: Yoga & Flexibility</h3>
+                    <p><strong>Years of Experience:</strong> 6 years</p>
+                    <p>Maya focuses on flexibility, balance, relaxation, and improving body posture through yoga sessions.</p>
+                    <a href="#">View Full Profile</a>
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.W6hn3c1l6XqE8zf-BH3OnAHaLH?w=1333&h=2000&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Photo of trainer Michael Brown">
+                        <figcaption>Achour iskander</figcaption>
+                    </figure>
+                    <h3>Specialty: Cardio Fitness</h3>
+                    <p><strong>Years of Experience:</strong> 5 years</p>
+                    <p>Iskander l designs effective cardio programs for weight loss, endurance, and heart health improvement.</p>
+                    <a href="#">View Full Profile</a>
+                </article>
+
+                <article>
+                    <figure>
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.5YuyyUSRPNVlTAtHvCmq8QHaEJ?w=2000&h=1121&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Photo of trainer Emily Davis">
+                        <figcaption>Black Mark</figcaption>
+                    </figure>
+                    <h3>Specialty: Personal Training</h3>
+                    <p><strong>Years of Experience:</strong> 7 years</p>
+                    <pw> Djaber works one-on-one with clients to create custom fitness plans based on personal goals.</pw>
+                    <br>
+                    <a href="#">View Full Profile</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="work-with-us">
+            
+            <h2>Work With Us</h2>
+            <p>Are you a certified fitness trainer looking to join our team? We are always searching for passionate professionals.</p>
+            <a href="contact.html">Contact Us to Apply</a>
+        </section>
+
+        <section>
+            <h2>Trainer Contact Information</h2>
+            <address>
+                Gym Management System<br>
+                123 Fitness Street<br>
+                Ali Mendjeli , n(15)part 18<br>
+                Phone: +213 781292716<br>
+                Email: djeberboudjerda@gmail.com
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gym Management System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
