@@ -1,13 +1,22 @@
 @import "style.css";
 
 body {
-  margin: 28px;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
   background: linear-gradient(180deg, var(--secondary) 0%, var(--bg) 100%);
   color: var(--white);
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
