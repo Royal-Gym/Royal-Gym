@@ -21,11 +21,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* بدلت هذي: */
     background-image:
         linear-gradient(var(--primary), rgba(0, 0, 0, 0.6) 20%),
         url("../assets/images/hero-section-background.jpg");
-    /* تأكد من المسار */
     background-size: cover;
     background-position: center;
     min-height: 40vh;
@@ -65,7 +63,6 @@ body {
     border-radius: 2rem;
     box-shadow: 0rem 0rem 2rem 1rem var(--bg-darker);
     overflow-x: auto;
-    /* لدعم الشاشات الصغيرة */
 }
 
 table {
