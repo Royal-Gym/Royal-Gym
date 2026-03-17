@@ -51,6 +51,9 @@ body {
 
 .tagline {
 	padding: 2rem;
+	font-size: 2rem;
+	font-family: "Playfair Display", sans-serif;
+	font-style: italic;
 }
 
 /* the button */
