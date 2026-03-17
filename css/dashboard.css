@@ -3,11 +3,11 @@
 
 
 :root {
-    --bg-light: #f4f4f4;
+    --bg-light: #e5e7eb;
     --primary-dark: #1a0a2e;
     --accent-gold: #d4af37;
-    --bg-white: white;
-    --border-light: #ddd;
+    --bg-white: #f3f4f6;
+    --border-light: #d1d5db;
     --shadow-light: rgba(0, 0, 0, 0.1);
 }
 
