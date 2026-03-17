@@ -1,261 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Gym Management System</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #031026;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0d1b2a, #1b263b);
-            color: white;
-            text-align: center;
-            padding: 25px 20px;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-        }
-
-        nav a {
-            color: #f8c146;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        main {
-            width: 90%;
-            max-width: 1100px;
-            margin: 30px auto;
-        }
-
-        section {
-            background:#071732;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #f8c146;
-        }
-
-        form {
-            display: grid;
-            gap: 15px;
-        }
-
-        label {
-            font-weight: bold;
-            color: #f8c146;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        button {
-            background: #1b263b;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #f8c146;
-            color: #1b263b;
-        }
-
-        address {
-            font-style: normal;
-            text-align: center;
-            line-height: 1.8;
-            color: #f8c146;
-        }
-
-        .map-placeholder {
-            background: #e9ecef;
-            padding: 50px 20px;
-            text-align: center;
-            border-radius: 10px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        table, th, td {
-            border: 1px solid #ffffff;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-        }
-
-        th {
-            background: #1b263b;
-            color: white;
-        }
-        tr{
-            background: #071732;
-            color: #f8c146;
-        }
-
-        footer {
-            background: #0d1b2a;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/contact.css">
 </head>
+
 <body>
 
     <header>
-        <h1>Contact Us</h1>
+        <a href="./index.html">
+            <span class="name">Royal Gym</span>
+            <img src="../assets/images/logo.png" alt="Royal Gym Logo" class="logo" />
+        </a>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="membership.html">Membership</a>
-            <a href="trainers.html">Trainers</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./classes.html">Classes</a></li>
+                <li><a href="./membership.html">Membership</a></li>
+                <li><a href="./trainers.html">Trainers</a></li>
+                <li class="active"><a href="./contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h2>Send Us a Message</h2>
-            <form action="#" method="post">
-                <div>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div>
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-
-                <div>
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-
-        <section>
-            <h2>Our Contact Details</h2>
-            <address>
-                Gym Management System
-                <br>
-                123 Fitness Street
-                <br>
-                Ali Mendjeli , n(15)part 18
-                <br>
-                Phone: +213 781292716
-                <br>
-                Email: djeberboudjerda@gmail.com
-            </address>
-        </section>
-
-        <section>
-            <h2>Find Us on the Map</h2>000
-            <div class="map-placeholder">
-                Embedded Map Placeholder
+    <section>
+        <h2>Send Us a Message</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
-        </section>
 
-        <section>
-            <h2>Opening Hours</h2>
-            <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Opening Time</th>
-                    <th>Closing Time</th>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td>6:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td>6:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>6:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>6:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td>6:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>2:30 pM</td>
-                    <td>12:00 PM</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>8:00 AM</td>
-                    <td>10:00 PM</td>
-                </tr>
-            </table>
-        </section>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+
+    <section>
+        <h2>Our Contact Details</h2>
+        <address>
+            Gym Management System
+            <br>
+            123 Fitness Street
+            <br>
+            Ali Mendjeli , n(15)part 18
+            <br>
+            Phone: +213 781292716
+            <br>
+            Email: djeberboudjerda@gmail.com
+        </address>
+    </section>
+
+    <section>
+        <h2>Find Us on the Map</h2>000
+        <div class="map-placeholder">
+            Embedded Map Placeholder
+        </div>
+    </section>
+
+    <section>
+        <h2>Opening Hours</h2>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Opening Time</th>
+                <th>Closing Time</th>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td>6:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>6:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>6:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>6:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>6:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>2:30 pM</td>
+                <td>12:00 PM</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>8:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+        </table>
+    </section>
     </main>
 
     <footer>
@@ -263,4 +128,5 @@
     </footer>
 
 </body>
+
 </html>

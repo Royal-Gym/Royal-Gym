@@ -1,38 +1,42 @@
-:root{
-  --primary:#071732;
-  --secondary:#031026;
-  --bg: var(--primary);
-  --card:#07203a;
-  --white:#ffffff;
-  --tertiary:#d4af37;
-  --muted:#cfcfcf;
-  --glass: rgba(212,175,55,0.08);
-  --radius:14px;
-  --shadow: 0 12px 34px rgba(0,0,0,0.6);
-  --focus: 0 0 0 4px rgba(212,175,55,0.12);
-}
-body{
-  margin:28px;
+@import "style.css";
+
+body {
+  margin: 28px;
   background: linear-gradient(180deg, var(--secondary) 0%, var(--bg) 100%);
-  color:var(--white);
+  color: var(--white);
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-header{ display:flex; align-items:center; gap:18px; margin-bottom:18px; }
-.brand{
-  display:flex; flex-direction:column;
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
 }
-.brand h1{
-  margin:0;
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand h1 {
+  margin: 0;
   font-family: "Playfair Display", serif;
-  letter-spacing:1px;
-  font-size:2rem; /* increased for stronger presence */
-  line-height:1;
-  color:var(--tertiary);
+  letter-spacing: 1px;
+  font-size: 2rem;
+  /* increased for stronger presence */
+  line-height: 1;
+  color: var(--tertiary);
 }
-.brand p{ margin:0; color:var(--muted); font-size:0.95rem; }
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 
 .admin-container {
   display: grid;
