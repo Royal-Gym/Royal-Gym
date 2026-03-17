@@ -88,7 +88,7 @@ body {
 }
 
 .facility-card {
-	background-color: var(--primary);
+	background-color: var(--secondary);
 	color: var(--text_light);
 	padding: 2rem;
 	border: 0.2rem solid var(--accent);
@@ -118,9 +118,6 @@ body {
 	border-radius: 2rem;
 }
 
-.facility-card:last-child {
-	grid-column: 2 / 3;
-}
 
 .membership {
 	display: flex;
@@ -140,9 +137,10 @@ body {
 }
 
 .membership-card h3 {
-	font-family: "Playfair Display", sans-serif;
-	color: var(--accent);
-	font-size: 2rem;
+	font-family: "Playfair Display", serif;
+	color: var(--white);
+	font-size: 1.8rem;
+	margin-bottom: 0.5rem;
 }
 
 .membership-cards-container {
@@ -153,37 +151,149 @@ body {
 }
 
 .membership-card {
-	background-color: var(--bg);
-	color: var(--text-dark);
-	padding: 2rem;
-	border: 0.2rem solid var(--accent);
-	border-radius: 4rem;
+	background-color: var(--secondary);
+	color: var(--text_light);
+	padding: 2.5rem 2rem;
+	border: 1px solid var(--glass);
+	border-radius: 1.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	transition: scale 0.1s linear;
-	background: repeating-linear-gradient(45deg,
-			var(--bg) 0px,
-			var(--bg) 20px,
-			var(--bg-darker) 20px,
-			var(--bg-darker) 40px);
+	transition: filter 0.2s linear, transform 0.2s linear;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .membership-card:hover {
-	scale: 1.05;
+	transform: translateY(-5px);
+	filter: brightness(1.1);
 }
 
 .membership-card .price {
-	padding: 1rem;
-	width: 10rem;
-	border: var(--accent) solid 0.3rem;
-	border-radius: 5rem;
-	background-color: var(--primary);
+	padding: 0.6rem 1.2rem;
+	width: auto;
+	border: 1px solid var(--accent);
+	border-radius: 2rem;
+	background-color: transparent;
 	color: var(--accent);
+	font-weight: 500;
+	font-size: 1.1rem;
+	margin-top: 0.5rem;
 }
 
 .membership-card dl {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	column-gap: 2rem;
+	width: 100%;
+	display: block;
+	margin-top: 1.5rem;
+	text-align: left;
+}
+
+.membership-card dt {
+	font-weight: bold;
+	color: var(--white);
+	margin-top: 0.8rem;
+	font-size: 1rem;
+}
+
+.membership-card dd {
+	color: var(--muted);
+	margin-left: 0;
+	margin-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--glass);
+	font-size: 0.95rem;
+}
+
+.membership-card dd:last-child {
+	border-bottom: none;
+}
+
+.opening-hours {
+	text-align: center;
+	color: var(--accent);
+	font-size: 2rem;
+	font-family: "Playfair Display", sans-serif;
+}
+
+table {
+	width: 60%;
+	margin: auto;
+	border-collapse: collapse;
+	font-size: 1rem;
+	font-family: "Roboto", sans-serif;
+	margin-top: 2rem;
+}
+
+table,
+th,
+td {
+	border: 1px solid #ffffff;
+}
+
+th,
+td {
+	padding: 12px;
+	text-align: center;
+}
+
+th {
+	background: #1b263b;
+	color: white;
+}
+
+tr {
+	background: #071732;
+	color: #f8c146;
+}
+
+footer {
+	text-align: center;
+	padding-top: 3rem;
+	padding-bottom: 1rem;
+	margin-top: 3rem;
+	border-top: 1px solid var(--glass);
+	background: var(--secondary);
+}
+
+.contact-details {
+	text-align: center;
+	padding: 0;
+	margin-bottom: 2rem;
+	box-shadow: none;
+}
+
+.contact-details h2 {
+	color: var(--accent);
+	font-family: "Playfair Display", serif;
+	font-size: 2rem;
+	font-style: italic;
+	margin-bottom: 1rem;
+}
+
+.contact-details address {
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+	line-height: 1.8;
+	color: var(--muted);
+}
+
+.contact-details address a {
+	color: var(--accent);
+	display: inline-block;
+	margin: 1rem 0.5rem 0;
+	padding: 0.5rem 1.5rem;
+	border: 1px solid var(--glass);
+	border-radius: 2rem;
+	transition: all 0.2s ease;
+}
+
+.contact-details address a:hover {
+	background: var(--accent);
+	color: var(--primary);
+}
+
+footer>p {
+	color: var(--white);
+	font-size: 0.9rem;
+	margin-top: 2rem;
 }
