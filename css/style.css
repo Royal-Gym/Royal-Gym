@@ -63,25 +63,21 @@ header nav ul li a {
     color: inherit;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
-}
-
-header nav ul li {
     color: var(--accent);
     padding: 0.8rem;
     border: 0.2rem solid var(--primary);
     border-radius: 1.5rem;
     background-color: var(--primary);
-    font-family: "Roboto", sans-serif;
+    transition: background-color 0.1s linear, color 0.1s linear;
 }
 
 /* buttons animation */
-header nav ul li:hover {
-    transition: scale 0.1s linear;
+header nav ul li a:hover {
     background-color: var(--accent);
     color: var(--primary);
 }
 
-header nav ul li:hover {
+header nav ul li a:hover {
     scale: 1.1;
     box-shadow: 0rem 0.1rem 1rem 0.1rem rgb(180, 178, 178);
     border: 0.2rem solid var(--accent);

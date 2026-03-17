@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 28px;
+  margin: 0;
   background: linear-gradient(180deg, var(--secondary) 0%, var(--bg) 100%);
   color: var(--white);
   font-family: "Roboto", sans-serif;
