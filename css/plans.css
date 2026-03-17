@@ -1,13 +1,10 @@
-@import "style.css";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Roboto:wght@400;700&display=swap");
 
-body {
-  margin: 28px;
-  background: linear-gradient(180deg, var(--secondary) 0%, var(--bg) 100%);
-  color: var(--white);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.main-content-wrapper {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -27,14 +24,13 @@ header {
   font-family: "Playfair Display", serif;
   letter-spacing: 1px;
   font-size: 2rem;
-  /* increased for stronger presence */
   line-height: 1;
-  color: var(--tertiary);
+  color: var(--primary-dark);
 }
 
 .brand p {
   margin: 0;
-  color: var(--muted);
+  color: #666;
   font-size: 0.95rem;
 }
 
@@ -55,7 +51,7 @@ main {
 .section-header h2 {
   margin: 0;
   font-family: 'Playfair Display', serif;
-  color: var(--tertiary);
+  color: var(--primary-dark);
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -63,24 +59,24 @@ main {
 
 .section-header p {
   margin: 8px 0 0 0;
-  color: var(--muted);
+  color: #666;
   font-size: 0.95rem;
 }
 
 /* Table Section */
 .plans-table-section {
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid var(--glass);
-  border-radius: var(--radius);
+  background: var(--bg-white);
+  border-top: 5px solid var(--primary-dark);
+  border-radius: 0.5rem;
   padding: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 4px var(--shadow-light);
   overflow-x: auto;
 }
 
 .plans-table-section h3 {
   margin: 0 0 20px 0;
   font-family: 'Playfair Display', serif;
-  color: var(--tertiary);
+  color: var(--primary-dark);
   font-size: 1.4rem;
   font-weight: 700;
 }
@@ -92,14 +88,13 @@ main {
 }
 
 .plans-table thead {
-  background: rgba(212, 175, 55, 0.06);
-  border-bottom: 2px solid rgba(212, 175, 55, 0.12);
+  background-color: var(--primary-dark);
 }
 
 .plans-table th {
   padding: 16px 12px;
   text-align: left;
-  color: var(--tertiary);
+  color: var(--accent-gold);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
@@ -107,13 +102,20 @@ main {
 
 .plans-table td {
   padding: 14px 12px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.06);
-  color: var(--muted);
+  border-bottom: 1px solid var(--border-light);
+  color: #333;
   font-size: 0.9rem;
 }
 
+/* Applying Playfair Display font here specifically to plan names */
+.plans-table td:first-child {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 .plans-table tbody tr:hover {
-  background: rgba(212, 175, 55, 0.03);
+  background: #f9f9f9;
 }
 
 .plans-table tbody tr:last-child td {
@@ -135,13 +137,13 @@ main {
 
 .btn-edit {
   background: transparent;
-  color: var(--tertiary);
-  border: 1px solid var(--tertiary);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
 }
 
 .btn-edit:hover {
-  background: var(--tertiary);
-  color: var(--primary);
+  background: var(--accent-gold);
+  color: var(--primary-dark);
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
 }
 
@@ -153,23 +155,23 @@ main {
 
 .btn-delete:hover {
   background: #ff6b6b;
-  color: var(--white);
+  color: var(--bg-white);
   box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
 }
 
 /* Add Plan Form Section */
 .add-plan-section {
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid var(--glass);
-  border-radius: var(--radius);
+  background: var(--bg-white);
+  border-top: 5px solid var(--primary-dark);
+  border-radius: 0.5rem;
   padding: 28px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .add-plan-section h3 {
   margin: 0 0 24px 0;
   font-family: 'Playfair Display', serif;
-  color: var(--tertiary);
+  color: var(--primary-dark);
   font-size: 1.4rem;
   font-weight: 700;
 }
@@ -197,7 +199,7 @@ main {
 
 .form-group label {
   margin-bottom: 6px;
-  color: var(--muted);
+  color: var(--primary-dark);
   font-weight: 600;
   font-size: 0.9rem;
   font-family: 'Inter', sans-serif;
@@ -208,9 +210,9 @@ main {
 .form-group select {
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: transparent;
-  color: var(--white);
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
+  color: #333;
   font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
   outline: none;
@@ -219,14 +221,14 @@ main {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: #aaa;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--tertiary);
-  box-shadow: var(--focus);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
 }
 
 .form-group textarea {
@@ -259,8 +261,8 @@ main {
 }
 
 .btn-submit {
-  background: var(--tertiary);
-  color: var(--primary);
+  background: var(--accent-gold);
+  color: var(--primary-dark);
   flex: 0 1 auto;
 }
 
@@ -272,23 +274,23 @@ main {
 
 .btn-cancel {
   background: transparent;
-  color: var(--muted);
-  border: 1px solid var(--glass);
+  color: #666;
+  border: 1px solid var(--border-light);
   flex: 0 1 auto;
 }
 
 .btn-cancel:hover {
-  color: var(--white);
-  border-color: var(--muted);
-  background: rgba(255, 255, 255, 0.02);
+  color: #333;
+  border-color: #999;
+  background: #f9f9f9;
 }
 
 /* Footer */
 footer {
-  border-top: 1px solid var(--glass);
+  border-top: 1px solid var(--border-light);
   padding-top: 20px;
   margin-top: 40px;
   text-align: center;
-  color: var(--muted);
+  color: #666;
   font-size: 0.9rem;
 }
