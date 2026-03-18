@@ -23,7 +23,7 @@ body {
     align-items: center;
     background-image:
         linear-gradient(var(--primary), rgba(0, 0, 0, 0.6) 20%),
-        url("../assets/images/hero-section-background.jpg");
+        url("../assets/images/classes.png");
     background-size: cover;
     background-position: center;
     min-height: 40vh;

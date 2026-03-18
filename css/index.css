@@ -141,7 +141,7 @@ body {
 
 .membership-card h3 {
 	font-family: "Playfair Display", serif;
-	color: var(--white);
+	color: var(--accent);
 	font-size: 1.8rem;
 	margin-bottom: 0.5rem;
 }
@@ -208,6 +208,10 @@ body {
 
 .membership-card dd:last-child {
 	border-bottom: none;
+}
+
+.elite {
+	border-color: var(--accent) ;
 }
 
 .opening-hours {
