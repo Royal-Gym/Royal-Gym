@@ -51,6 +51,7 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
+    background-color: rgb(133, 141, 151);
 }
 
 textarea {
