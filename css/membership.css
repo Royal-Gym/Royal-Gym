@@ -18,8 +18,11 @@ body {
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 18px;a
   margin-bottom: 26px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 30px;a
 }
 
 @media (max-width:900px) {
@@ -37,7 +40,7 @@ body {
 .plan-card {
   background: rgba(255, 255, 255, 0.01);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 15px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(212, 175, 55, 0.06);
   display: flex;
