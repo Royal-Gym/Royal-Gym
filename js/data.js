@@ -71,7 +71,7 @@ const maleClasses = [
     { id: 5, name: "Personal Training", trainer: "Djaber Mark", day: "Friday", time: "10:00", duration: 55, difficulty: "Beginner" },
     { id: 6, name: "Stretching & Recovery", trainer: "Walid Cherif", day: "Sunday", time: "11:00", duration: 45, difficulty: "Beginner" },
     { id: 4, name: "Boxing", trainer: "Tarek Mansouri", day: "Thursday", time: "17:00", duration: 60, difficulty: "Intermediate" },
-    { id: 2, name: "CrossFit", trainer: "Galiloe Paul", day: "Tuesday", time: "07:00", duration: 45, difficulty: "Advanced" },
+    { id: 2, name: "CrossFit", trainer: "Galileo Paul", day: "Tuesday", time: "07:00", duration: 45, difficulty: "Advanced" },
     { id: 7, name: "Power Lifting", trainer: "Alikhodja Yacine", day: "Monday", time: "18:00", duration: 75, difficulty: "Advanced" },
     { id: 8, name: "Advanced Boxing", trainer: "Tarek Mansouri", day: "Saturday", time: "10:00", duration: 90, difficulty: "Advanced" }
 ];
@@ -82,6 +82,6 @@ const femaleClasses = [
     { id: 104, name: "Weight Loss PT", trainer: "Selma Belkaid", day: "Friday", time: "09:00", duration: 60, difficulty: "Beginner" },
     { id: 102, name: "Female CrossFit", trainer: "Ines Rahmani", day: "Tuesday", time: "09:00", duration: 45, difficulty: "Intermediate" },
     { id: 105, name: "Full Body Strength", trainer: "Sara Meziani", day: "Thursday", time: "11:00", duration: 60, difficulty: "Intermediate" },
-    { id: 107, name: "Endurance Training", trainer: "Ines Rahmani", day: "Saturday", time: "11:30", duration: 60, difficulty: "Intermediate" }
+    { id: 107, name: "Endurance Training", trainer: "Ines Rahmani", day: "Saturday", time: "11:30", duration: 60, difficulty: "Intermediate" },
     { id: 106, name: "High Intensity Cardio", trainer: "Meriem Haddad", day: "Sunday", time: "10:00", duration: 45, difficulty: "Advanced" },
 ];
