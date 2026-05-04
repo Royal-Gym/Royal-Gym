@@ -21,12 +21,12 @@
 // ------------------------------------------------------------
 
 const initStorage = () => {
-  import { members, membershipPlans, trainers, maleClasses, femaleClasses} from "./data.js";
+  import { members, membershipPlans, trainers, maleClasses, femaleClasses } from "./data.js";
   // Step 1: Check if localStorage key "members" exists
   //         → if it does NOT exist, stringify the global `members`
   //           array (from data.js) and store it under key "members"
   let membersData = localStorage.getItem("members");
-  if(members === null){
+  if (members === null) {
     localStorage.setItem("members", JSON.stringify(members))
   }
 
@@ -35,12 +35,12 @@ const initStorage = () => {
   //           `femaleClasses` arrays from data.js into one array,
   //           stringify it, and store under key "classes"
   let maleClassesData = localStorage.getItem("maleClasses");
-  if(maleClassesData === null){
+  if (maleClassesData === null) {
     localStorage.setItem("classes", JSON.stringify(maleClasses))
   }
 
   let femaleClassesData = localStorage.getItem("femaleClasses");
-  if(femaleClassesData === null){
+  if (femaleClassesData === null) {
     localStorage.setItem("classes", JSON.stringify(femaleClasses))
   }
 
@@ -49,12 +49,12 @@ const initStorage = () => {
   //         → if it does NOT exist, stringify the global
   //           `membershipPlans` object and store under key "plans"
   let plansData = localStorage.getItem("plans");
-  if(plansData === null){
+  if (plansData === null) {
     localStorage.setItem("plans", JSON.stringify(membershipPlans));
   }
 
   let trainersData = localStorage.getItem("trainers");
-  if(trainersData === null){
+  if (trainersData === null) {
     localStorage.setItem("trainers", JSON.stringify(trainers));
   }
 };
