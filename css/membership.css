@@ -248,6 +248,40 @@ textarea:focus {
   transform: translateY(-1px);
 }
 
+/* ── Field validation states ─────────────────────────────────────── */
+input.input--error {
+  border-color: #e05252 !important;
+  box-shadow: 0 0 0 3px rgba(224, 82, 82, 0.18) !important;
+  transform: translateY(-1px);
+}
+
+input.input--success {
+  border-color: #4caf7d !important;
+  box-shadow: 0 0 0 3px rgba(76, 175, 125, 0.14) !important;
+}
+
+.field-msg {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 5px;
+  min-height: 1.1em;
+  animation: slideDown 0.18s ease;
+}
+
+.field-msg--error {
+  color: #e05252;
+}
+
+.field-msg--success {
+  color: #4caf7d;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 textarea {
   min-height: 100px;
   resize: vertical;
