@@ -4,138 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Plans Management</title>
-
-    <script src="../js/data.js"></script>
-<script src="../js/plans.js"></script>
-    
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="../css/plans.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Membership Plans | Royal Gym</title>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body>
-    <aside>
-        <a href="../index.html">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="../index.html" class="sidebar-brand">
             Royal Gym
-            <img src="../assets/images/logo.png" alt="Royal Gym Logo" width="100" height="100" />
+            <img src="../assets/images/logo.png" alt="Royal Gym Logo">
         </a>
-        <nav>
-            <ul>
-                <li><a href="./dashboard.html">Dashboard</a></li>
-                <li><a href="./plans.html">Plans</a></li>
-                <li><a href="../index.html">Return to Home</a></li>
-            </ul>
-        </nav>
+        <ul class="sidebar-nav">
+            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="./plans.html" class="active">Plans</a></li>
+            <li><a href="./members.html">Members</a></li>
+            <div class="nav-divider"></div>
+            <li><a href="../index.html">Return to Home</a></li>
+        </ul>
     </aside>
-    <div class="main-content-wrapper">
-        <header>
-            <section class="section-header">
-                <h2>Membership Plans</h2>
-                <p>Manage your gym's membership plans and offerings</p>
-            </section>
-        </header>
 
-        <div class="admin-container">
-            <main>
+    <!-- Main Content -->
+    <div class="main-content">
 
-
-                <!-- Existing Plans Table -->
-                <section class="plans-table-section">
-                    <h3>Current Plans</h3>
-                    <table class="plans-table">
-                        <thead>
-                            <tr>
-                                <th>Plan Name</th>
-                                <th>Price</th>
-                                <th>Duration</th>
-                                <th>Features</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Bronze</td>
-                                <td>4000 DA</td>
-                                <td>1 month</td>
-                                <td>Equipment access, Water/Drinks, Showers</td>
-                                <td>
-                                    <button class="btn-edit">Edit</button>
-                                    <button class="btn-delete">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Silver</td>
-                                <td>6000 DA</td>
-                                <td>1 month</td>
-                                <td>All Bronze + Sauna + Nutrition Plan</td>
-                                <td>
-                                    <button class="btn-edit">Edit</button>
-                                    <button class="btn-delete">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Gold</td>
-                                <td>15000 DA</td>
-                                <td>1 month</td>
-                                <td>All Silver + Coaching + Massage Services</td>
-                                <td>
-                                    <button class="btn-edit">Edit</button>
-                                    <button class="btn-delete">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Add New Plan Form -->
-                <section class="add-plan-section">
-                    <h3>Add New Plan</h3>
-                    <form class="add-plan-form" action="#" method="post" novalidate>
-                        <div class="form-group">
-                            <label for="plan-name">Plan Name</label>
-                            <input id="plan-name" name="plan-name" type="text" placeholder="e.g., Platinum" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="plan-price">Price (DA)</label>
-                            <input id="plan-price" name="plan-price" type="number" placeholder="e.g., 20000" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="plan-duration">Duration</label>
-                            <select id="plan-duration" name="plan-duration" required>
-                                <option value="">Select duration</option>
-                                <option value="1-month">1 Month</option>
-                                <option value="3-months">3 Months</option>
-                                <option value="6-months">6 Months</option>
-                                <option value="1-year">1 Year</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="plan-description">Description</label>
-                            <textarea id="plan-description" name="plan-description"
-                                placeholder="List features and benefits separated by commas" required></textarea>
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn-submit">Add Plan</button>
-                            <button type="reset" class="btn-cancel">Reset</button>
-                        </div>
-                    </form>
-                </section>
-
-            </main>
+        <div class="page-header">
+            <h1>Membership Plans</h1>
+            <p>Manage your gym's membership plans and offerings</p>
         </div>
 
-        <footer>
-            <p>&copy; 2026 Royale Gym Management System. All rights reserved.</p>
+        <!-- Current Plans Table -->
+        <div class="card">
+            <h2 class="card-title">Current Plans</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan Name</th>
+                        <th>Price</th>
+                        <th>Duration</th>
+                        <th>Features</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Starter</td>
+                        <td>4,900 DA</td>
+                        <td>1 month</td>
+                        <td>Equipment access, Standard locker, Standard support</td>
+                        <td>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Elite</td>
+                        <td>14,900 DA</td>
+                        <td>1 month</td>
+                        <td>All Starter + Sauna & Steam, Meal plan, Priority support</td>
+                        <td>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Royale</td>
+                        <td>24,900 DA</td>
+                        <td>1 month</td>
+                        <td>All Elite + Personal Training, 1-on-1 coaching, Massage</td>
+                        <td>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add New Plan Form -->
+        <div class="card">
+            <h2 class="card-title">Add New Plan</h2>
+            <form class="form-grid" action="#" method="post" novalidate>
+                <div class="form-group">
+                    <label for="plan-name">Plan Name</label>
+                    <input id="plan-name" type="text" placeholder="e.g. Platinum" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan-price">Price (DA)</label>
+                    <input id="plan-price" type="number" placeholder="e.g. 20000" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan-duration">Duration</label>
+                    <select id="plan-duration" required>
+                        <option value="">Select duration</option>
+                        <option value="1-month">1 Month</option>
+                        <option value="3-months">3 Months</option>
+                        <option value="6-months">6 Months</option>
+                        <option value="1-year">1 Year</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="plan-description">Description</label>
+                    <textarea id="plan-description" placeholder="List features and benefits separated by commas" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">Add Plan</button>
+                    <button type="reset" class="btn btn-cancel">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <footer class="admin-footer">
+            <p>&copy; 2026 Royal Gym Management System. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/plans.js"></script>
 </body>
 
 </html>

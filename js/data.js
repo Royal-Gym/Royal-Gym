@@ -85,3 +85,9 @@ const femaleClasses = [
     { id: 107, name: "Endurance Training", trainer: "Ines Rahmani", day: "Saturday", time: "11:30", duration: 60, difficulty: "Intermediate" },
     { id: 106, name: "High Intensity Cardio", trainer: "Meriem Haddad", day: "Sunday", time: "10:00", duration: 45, difficulty: "Advanced" },
 ];
+
+export default members;
+export default membershipPlans ;
+export default trainers;
+export default maleClasses;
+export default femaleClasses;

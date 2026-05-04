@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Management | Royal Gym</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="../index.html" class="sidebar-brand">
+            Royal Gym
+            <img src="../assets/images/logo.png" alt="Royal Gym Logo">
+        </a>
+        <ul class="sidebar-nav">
+            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="./plans.html">Plans</a></li>
+            <li><a href="./members.html" class="active">Members</a></li>
+            <div class="nav-divider"></div>
+            <li><a href="../index.html">Return to Home</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="page-header">
+            <h1>Members</h1>
+            <p>Manage gym members — add, edit, search, and remove</p>
+        </div>
+
+        <!-- Add Member Form -->
+        <div class="card">
+            <h2 class="card-title">Add New Member</h2>
+            <form id="add-member-form" class="form-grid">
+                <div class="form-group">
+                    <label for="m-name">Full Name</label>
+                    <input type="text" id="m-name" placeholder="e.g. Ahmed Benali" required>
+                </div>
+                <div class="form-group">
+                    <label for="m-email">Email</label>
+                    <input type="email" id="m-email" placeholder="e.g. ahmed@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="m-phone">Phone</label>
+                    <input type="text" id="m-phone" placeholder="e.g. 0551234567" required>
+                </div>
+                <div class="form-group">
+                    <label for="m-plan">Plan</label>
+                    <select id="m-plan" required>
+                        <option value="">Select plan</option>
+                        <option value="Starter">Starter</option>
+                        <option value="Elite">Elite</option>
+                        <option value="Royale">Royale</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="m-joindate">Join Date</label>
+                    <input type="date" id="m-joindate" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">Add Member</button>
+                    <button type="reset" class="btn btn-cancel">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Members Table -->
+        <div class="card">
+            <h2 class="card-title">All Members</h2>
+
+            <!-- Toolbar: search + filter -->
+            <div class="toolbar">
+                <input type="text" id="member-search" placeholder="Search by name...">
+                <select id="plan-filter">
+                    <option value="">All Plans</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Elite">Elite</option>
+                    <option value="Royale">Royale</option>
+                </select>
+                <span class="count">Showing <strong id="member-count">0</strong> members</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Plan</th>
+                        <th>Join Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="members-tbody">
+                    <!-- Rendered by members.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="admin-footer">
+            <p>&copy; 2026 Royal Gym Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="edit-modal">
+        <div class="modal">
+            <h2>Edit Member</h2>
+            <form id="edit-form" class="form-grid">
+                <div class="form-group">
+                    <label for="edit-name">Full Name</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-phone">Phone</label>
+                    <input type="text" id="edit-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-plan">Plan</label>
+                    <select id="edit-plan" required>
+                        <option value="Starter">Starter</option>
+                        <option value="Elite">Elite</option>
+                        <option value="Royale">Royale</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">Save Changes</button>
+                    <button type="button" class="btn btn-cancel" onclick="closeEditModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/members.js"></script>
+</body>
+
+</html>
