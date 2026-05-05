@@ -598,6 +598,8 @@ td {
 	margin-top: 6px;
 }
 
+
+
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -613,6 +615,8 @@ td {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* --- Tablet (≤ 900px) --- */
 @media (max-width: 900px) {
 	.sidebar {
 		width: 200px;
@@ -627,9 +631,25 @@ td {
 	.form-grid {
 		grid-template-columns: 1fr;
 	}
+
+	/* Tables scroll horizontally instead of overflowing */
+	.card {
+		overflow-x: auto;
+	}
+
+	/* Toolbar wraps to two lines */
+	.toolbar {
+		flex-wrap: wrap;
+	}
 }
 
+/* --- Mobile (≤ 640px) --- */
 @media (max-width: 640px) {
+	/* Sidebar becomes a top bar */
+	body {
+		flex-direction: column;
+	}
+
 	.sidebar {
 		position: relative;
 		width: 100%;
@@ -649,12 +669,30 @@ td {
 		gap: 4px;
 	}
 
-	body {
-		flex-direction: column;
-	}
-
 	.main-content {
 		margin-left: 0;
 		padding: 16px;
+	}
+
+	/* Cards take less padding */
+	.card {
+		padding: 16px;
+	}
+
+	/* Modal goes full width with small margin */
+	.modal {
+		max-width: calc(100% - 32px);
+		padding: 20px;
+	}
+
+	/* Toolbar stacks vertically */
+	.toolbar {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.toolbar input,
+	.toolbar select {
+		width: 100%;
 	}
 }

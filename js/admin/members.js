@@ -3,47 +3,44 @@
 let editingIndex = null;
 
 function getMembers() {
-  // TODO: read "members" from localStorage and return the array
   let data = localStorage.getItem("members");
-  let members = JSON.parse(data) ;
+  let members = JSON.parse(data);
   return members || [];
 }
 
 function saveMembers(members) {
-  // TODO: save the members array to localStorage under key "members"
   localStorage.setItem("members", JSON.stringify(members));
 }
 
 function renderMembers() {
-  // TODO: get members, filter by search + plan, render rows in #membersTableBody
   let members = getMembers();
   let table = document.getElementById("members-tbody");
   table.innerHTML = "";
 
   let search = document.getElementById("member-search").value.toLowerCase();
   let filter = document.getElementById("plan-filter").value;
-  
 
-  if( search !== ""){
-    members = members.filter(m => 
+
+  if (search !== "") {
+    members = members.filter(m =>
       m.name.toLowerCase().includes(search) ||
       m.email.toLowerCase().includes(search)
     )
   }
-  if( filter !== "All"){
+  if (filter !== "All") {
     members = members.filter(m => m.plan === filter);
   }
 
 
-  table.innerHTML = members.map( member => `
+  table.innerHTML = members.map(member => `
     <tr> 
       <td>${member.name} </td>
       <td>${member.email} </td>
       <td><span class="badge badge-${member.plan.toLowerCase()}">${member.plan}</span></td>
       <td>${member.date} </td>
       <td>
-        <button onclick="openEditModal(${member.id})">Edit</button>
-        <button onclick="openDeleteModal(${member.id})">Delete</button>
+        <button class="btn btn-edit" onclick="openEditModal(${member.id})">Edit</button>
+        <button class="btn btn-delete" onclick="openDeleteModal(${member.id})">Delete</button>
       </td>
     </tr>
   `).join("");
@@ -52,17 +49,17 @@ function renderMembers() {
 
 let deletingId = null;
 
-function openDeleteModal(id){
+function openDeleteModal(id) {
   deletingId = id;
   document.getElementById('deleteModal').classList.remove('hidden');
 }
 
-function closeDeleteModal(){
+function closeDeleteModal() {
   document.getElementById('deleteModal').classList.add('hidden');
   deletingId = null;
 }
 
-function confirmDelete(){
+function confirmDelete() {
   let members = getMembers();
   members = members.filter(m => m.id !== deletingId);
   saveMembers(members);
@@ -73,7 +70,7 @@ function confirmDelete(){
 
 let editingId = null;
 
-function openAddModal(){
+function openAddModal() {
   editingId = null
   document.getElementById("modalTitle").textContent = "Add Member";
   document.getElementById("inputName").value = "";
@@ -83,13 +80,12 @@ function openAddModal(){
 }
 
 function openEditModal(id) {
-  // TODO: find the member by id, fill the form, show modal
   editingId = id;
   let members = getMembers();
   let member = members.find(m => m.id === id);
 
   document.getElementById("modalTitle").textContent = "Edit Member"
-  document.getElementById("inputName").value =member.name;
+  document.getElementById("inputName").value = member.name;
   document.getElementById("inputEmail").value = member.email;
   document.getElementById("inputPlan").value = member.plan;
   document.getElementById("memberModal").classList.remove("hidden");
@@ -104,7 +100,7 @@ function saveMember() {
   let name = document.getElementById("inputName").value;
   let email = document.getElementById("inputEmail").value;
   let plan = document.getElementById("inputPlan").value;
-  if(name === "" || email === ""){
+  if (name === "" || email === "" || plan === "") {
     alert("Please fill in all the fields.")
     return;
   }
@@ -112,22 +108,22 @@ function saveMember() {
   let members = getMembers();
 
   let duplicate = members.find(m => m.email === email && m.id !== editingId)
-  if(duplicate){
+  if (duplicate) {
     document.getElementById("errorMsg").classList.remove("hidden");
     return;
   }
 
-  if(editingId){
-    members = members.map(m => m.id === editingId ? {...m, name, email, plan} : m);
+  if (editingId) {
+    members = members.map(m => m.id === editingId ? { ...m, name, email, plan } : m);
     editingId = null
   }
-  else{
+  else {
     let newMember = {
       id: Date.now(),
       name: name,
       email: email,
       plan: plan,
-      date: new Date().toISOString().slice(0, 10) //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      date: new Date().toISOString().slice(0, 10)
     }
     members.push(newMember);
   }
@@ -138,7 +134,7 @@ function saveMember() {
 }
 
 document.getElementById("memberModal").addEventListener("click", (e) => {
-  if (e.target === document.getElementById("memberModal")){
+  if (e.target === document.getElementById("memberModal")) {
     closeModal();
   }
 });
@@ -146,9 +142,9 @@ document.getElementById("memberModal").addEventListener("click", (e) => {
 
 
 document.addEventListener("keydown", (e) => {
-  if(e.key === "Escape" ){
+  if (e.key === "Escape") {
     let modal = document.getElementById("memberModal");
-    if(modal.display !== "none"){
+    if (modal.display !== "none") {
       closeModal();
     }
   }
