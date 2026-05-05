@@ -34,10 +34,12 @@ function renderMembers() {
 
   table.innerHTML = members.map(member => `
     <tr> 
-      <td>${member.name} </td>
-      <td>${member.email} </td>
+      <td>${member.name}</td>
+      <td>${member.gender}</td>
+      <td>${member.email}</td>
+      <td>${member.phone}</td>
       <td><span class="badge badge-${member.plan.toLowerCase()}">${member.plan}</span></td>
-      <td>${member.date} </td>
+      <td>${member.joinDate} </td>
       <td>
         <button class="btn btn-edit" onclick="openEditModal(${member.id})">Edit</button>
         <button class="btn btn-delete" onclick="openDeleteModal(${member.id})">Delete</button>
@@ -86,8 +88,10 @@ function openEditModal(id) {
 
   document.getElementById("modalTitle").textContent = "Edit Member"
   document.getElementById("inputName").value = member.name;
+  document.getElementById("inputGender").value = member.gender;
   document.getElementById("inputEmail").value = member.email;
   document.getElementById("inputPlan").value = member.plan;
+  document.getElementById("inputPhone").value = member.phone;
   document.getElementById("memberModal").classList.remove("hidden");
 }
 
@@ -100,7 +104,9 @@ function saveMember() {
   let name = document.getElementById("inputName").value;
   let email = document.getElementById("inputEmail").value;
   let plan = document.getElementById("inputPlan").value;
-  if (name === "" || email === "" || plan === "") {
+  let gender = document.getElementById("inputGender").value;
+  let phone = document.getElementById("inputPhone").value;
+  if (name === "" || email === "" || plan === "" || phone === "" || gender === "") {
     alert("Please fill in all the fields.")
     return;
   }
@@ -121,9 +127,11 @@ function saveMember() {
     let newMember = {
       id: Date.now(),
       name: name,
+      gender: gender,
       email: email,
+      phone: phone,
       plan: plan,
-      date: new Date().toISOString().slice(0, 10)
+      joinDate: new Date().toISOString().slice(0, 10)
     }
     members.push(newMember);
   }

@@ -1,10 +1,18 @@
 /* ============================================================
    admin.css — Shared styles for ALL admin pages
    (dashboard, plans, members)
+   Load this file first, then page-specific CSS on top of it.
    ============================================================ */
 
-/* Playfair Display — same files, reuse them */
 
+/* ============================================================
+   FONTS — loaded from local files, no internet needed
+   Each @font-face block registers one weight/style variant.
+   font-display: swap → shows fallback text instantly, then
+   swaps to the real font once it finishes loading.
+   ============================================================ */
+
+/* Playfair Display — serif font used for headings and brand name */
 @font-face {
 	font-family: "Playfair Display";
 	src: url("../../assets/fonts/playfair/playfair-600.woff2") format("woff2");
@@ -21,6 +29,7 @@
 	font-display: swap;
 }
 
+/* Italic variant — used for the brand name in the sidebar */
 @font-face {
 	font-family: "Playfair Display";
 	src: url("../../assets/fonts/playfair/playfair-700-italic.woff2") format("woff2");
@@ -29,11 +38,11 @@
 	font-display: swap;
 }
 
-/* Inter */
+/* Inter — clean sans-serif used for all body text in admin */
 @font-face {
 	font-family: "Inter";
 	src: url("../../assets/fonts/inter/inter-300.woff2") format("woff2");
-	font-weight: 300;
+	font-weight: 300; /* light */
 	font-style: normal;
 	font-display: swap;
 }
@@ -41,7 +50,7 @@
 @font-face {
 	font-family: "Inter";
 	src: url("../../assets/fonts/inter/inter-400.woff2") format("woff2");
-	font-weight: 400;
+	font-weight: 400; /* regular */
 	font-style: normal;
 	font-display: swap;
 }
@@ -49,12 +58,12 @@
 @font-face {
 	font-family: "Inter";
 	src: url("../../assets/fonts/inter/inter-600.woff2") format("woff2");
-	font-weight: 600;
+	font-weight: 600; /* semibold — used for labels and active nav */
 	font-style: normal;
 	font-display: swap;
 }
 
-/* Roboto (fallback — same files as style.css) */
+/* Roboto — fallback if Inter is unavailable */
 @font-face {
 	font-family: "Roboto";
 	src: url("../../assets/fonts/roboto/roboto-300.woff2") format("woff2");
@@ -79,30 +88,37 @@
 	font-display: swap;
 }
 
+/* Utility: hide any element by adding class="hidden" */
 .hidden {
 	display: none;
 }
 
-/* ---- Variables ---- */
+/* ============================================================
+   VARIABLES — global design tokens used everywhere below.
+   Change a value here and it updates across the whole admin.
+   ============================================================ */
 :root {
-	--bg-page: #f0f1f5;
-	--bg-card: #ffffff;
-	--primary: #1a0a2e;
-	--primary-light: #2d1b4e;
-	--gold: #d4af37;
-	--gold-hover: #b8960b;
-	--text: #333;
-	--text-light: #777;
-	--border: #e0e0e0;
-	--red: #e74c3c;
-	--red-hover: #c0392b;
-	--green: #27ae60;
-	--blue: #2980b9;
-	--shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-	--radius: 8px;
+	--bg-page: #f0f1f5;       /* light grey page background */
+	--bg-card: #ffffff;       /* white card background */
+	--primary: #1a0a2e;       /* deep purple — main brand color */
+	--primary-light: #2d1b4e; /* lighter purple for hover states */
+	--gold: #d4af37;          /* gold accent — buttons, highlights */
+	--gold-hover: #b8960b;    /* darker gold for hover */
+	--text: #333;             /* default body text */
+	--text-light: #777;       /* muted/secondary text */
+	--border: #e0e0e0;        /* input and card borders */
+	--red: #e74c3c;           /* delete / danger color */
+	--red-hover: #c0392b;     /* darker red for hover */
+	--green: #27ae60;         /* success / Starter badge */
+	--blue: #2980b9;          /* edit / Elite badge */
+	--shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* card drop shadow */
+	--radius: 8px;            /* standard border-radius */
 }
 
-/* ---- Reset ---- */
+/* ============================================================
+   RESET — removes browser default margin/padding and sets
+   box-sizing so padding is included inside element widths.
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -111,6 +127,7 @@
 	padding: 0;
 }
 
+/* Body is a flex row: sidebar on the left, main content on the right */
 body {
 	font-family: "Inter", "Roboto", sans-serif;
 	background: var(--bg-page);
@@ -119,27 +136,30 @@ body {
 	min-height: 100vh;
 }
 
+/* Remove underlines from all links */
 a {
 	text-decoration: none;
 }
 
 /* ============================================================
-   SIDEBAR
+   SIDEBAR — fixed vertical navigation panel on the left.
+   Always visible, does not scroll with the page.
    ============================================================ */
 .sidebar {
 	width: 240px;
 	background: var(--primary);
 	color: #fff;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;  /* brand on top, nav links below */
 	padding: 24px 16px;
-	position: fixed;
+	position: fixed;         /* stays in place while page scrolls */
 	top: 0;
 	left: 0;
 	bottom: 0;
-	z-index: 100;
+	z-index: 100;            /* sits above page content */
 }
 
+/* Brand: logo image stacked above the gym name */
 .sidebar-brand {
 	display: flex;
 	flex-direction: column;
@@ -152,6 +172,7 @@ a {
 	font-weight: 700;
 }
 
+/* Circular logo with gold border */
 .sidebar-brand img {
 	width: 72px;
 	height: 72px;
@@ -159,6 +180,7 @@ a {
 	border: 2px solid var(--gold);
 }
 
+/* Nav list — vertical stack of links */
 .sidebar-nav {
 	list-style: none;
 	display: flex;
@@ -166,6 +188,7 @@ a {
 	gap: 6px;
 }
 
+/* Each nav link — semi-transparent white, rounded pill */
 .sidebar-nav a {
 	display: block;
 	padding: 10px 14px;
@@ -176,17 +199,20 @@ a {
 	transition: all 0.2s;
 }
 
+/* Hover state — slightly lighter background, gold text */
 .sidebar-nav a:hover {
 	background: var(--primary-light);
 	color: var(--gold);
 }
 
+/* Active page — gold background, dark text to show current location */
 .sidebar-nav a.active {
 	background: var(--gold);
 	color: var(--primary);
 	font-weight: 600;
 }
 
+/* Thin horizontal rule separating nav sections */
 .sidebar-nav .nav-divider {
 	height: 1px;
 	background: rgba(255, 255, 255, 0.1);
@@ -194,20 +220,22 @@ a {
 }
 
 /* ============================================================
-   MAIN CONTENT
+   MAIN CONTENT — the scrollable area to the right of sidebar.
+   margin-left pushes it past the fixed sidebar width.
    ============================================================ */
 .main-content {
-	margin-left: 240px;
+	margin-left: 240px; /* same as sidebar width */
 	flex: 1;
 	padding: 32px;
 	min-height: 100vh;
 }
 
-/* Page header */
+/* Page header: large title + subtitle at the top of each page */
 .page-header {
 	margin-bottom: 28px;
 }
 
+/* Serif heading for visual contrast against the body font */
 .page-header h1 {
 	font-family: "Playfair Display", serif;
 	font-size: 1.8rem;
@@ -215,13 +243,15 @@ a {
 	margin-bottom: 4px;
 }
 
+/* Muted subtitle below the page title */
 .page-header p {
 	color: var(--text-light);
 	font-size: 0.9rem;
 }
 
 /* ============================================================
-   CARDS (generic white card)
+   CARDS — white rounded containers that group related content.
+   Used for tables, forms, charts, etc.
    ============================================================ */
 .card {
 	background: var(--bg-card);
@@ -231,6 +261,7 @@ a {
 	margin-bottom: 24px;
 }
 
+/* Card heading with a gold underline divider */
 .card-title {
 	font-family: "Playfair Display", serif;
 	font-size: 1.2rem;
@@ -241,17 +272,20 @@ a {
 }
 
 /* ============================================================
-   TABLES
+   TABLES — used in members and plans pages.
+   Full width, borderless cells, dark header with gold text.
    ============================================================ */
 table {
 	width: 100%;
-	border-collapse: collapse;
+	border-collapse: collapse; /* removes gaps between cells */
 }
 
+/* Dark header row */
 thead {
 	background: var(--primary);
 }
 
+/* Column headers — uppercase gold text */
 th {
 	padding: 12px 14px;
 	text-align: left;
@@ -262,6 +296,7 @@ th {
 	letter-spacing: 0.5px;
 }
 
+/* Data cells — thin bottom border acts as row divider */
 td {
 	padding: 12px 14px;
 	border-bottom: 1px solid var(--border);
@@ -270,7 +305,8 @@ td {
 }
 
 /* ============================================================
-   BADGES (plan labels)
+   BADGES — small colored pill labels for plan names.
+   Applied as: <span class="badge badge-starter">Starter</span>
    ============================================================ */
 .badge {
 	display: inline-block;
@@ -280,24 +316,30 @@ td {
 	font-weight: 600;
 }
 
+/* Green — entry-level plan */
 .badge-starter {
 	background: #e8f5e9;
 	color: #2e7d32;
 }
 
+/* Blue — mid-tier plan */
 .badge-elite {
 	background: #e3f2fd;
 	color: #1565c0;
 }
 
+/* Gold — premium plan */
 .badge-royale {
 	background: #fff8e1;
 	color: #f57f17;
 }
 
 /* ============================================================
-   BUTTONS
+   BUTTONS — base .btn class + modifier classes.
+   Always pair: class="btn btn-gold" etc.
    ============================================================ */
+
+/* Base: shared padding, border-radius, transition for all buttons */
 .btn {
 	display: inline-block;
 	padding: 7px 14px;
@@ -309,6 +351,7 @@ td {
 	transition: all 0.2s;
 }
 
+/* Gold — primary action (Add, Save) */
 .btn-gold {
 	background: var(--gold);
 	color: var(--primary);
@@ -319,6 +362,7 @@ td {
 	box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
+/* Blue outline — Edit action */
 .btn-edit {
 	background: none;
 	color: var(--blue);
@@ -330,6 +374,7 @@ td {
 	color: #fff;
 }
 
+/* Red outline — Delete action */
 .btn-delete {
 	background: none;
 	color: var(--red);
@@ -341,6 +386,7 @@ td {
 	color: #fff;
 }
 
+/* Grey outline — Cancel / secondary action */
 .btn-cancel {
 	background: none;
 	color: var(--text-light);
@@ -352,6 +398,7 @@ td {
 	color: var(--text);
 }
 
+/* Gold filled — form submit (larger padding than btn-gold) */
 .btn-submit {
 	background: var(--gold);
 	color: var(--primary);
@@ -364,23 +411,29 @@ td {
 }
 
 /* ============================================================
-   FORMS
+   FORMS — two-column grid layout for admin forms.
+   Used in both the Add Member and Add Plan forms.
    ============================================================ */
+
+/* Two equal columns, gaps between fields */
 .form-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 16px;
 }
 
+/* Span both columns — used for textarea/description fields */
 .form-grid .full-width {
 	grid-column: 1 / -1;
 }
 
+/* Each label+input pair stacks vertically */
 .form-group {
 	display: flex;
 	flex-direction: column;
 }
 
+/* Bold small label above each input */
 .form-group label {
 	font-size: 0.82rem;
 	font-weight: 600;
@@ -388,6 +441,7 @@ td {
 	margin-bottom: 5px;
 }
 
+/* Shared styles for all input types inside a form group */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -402,6 +456,7 @@ td {
 	transition: border-color 0.2s;
 }
 
+/* Gold border + glow when focused */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -409,20 +464,23 @@ td {
 	box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
 }
 
+/* Textarea: minimum height, user can resize vertically */
 .form-group textarea {
 	min-height: 80px;
 	resize: vertical;
 }
 
+/* Action row at the bottom of a form (Submit + Reset buttons) */
 .form-actions {
-	grid-column: 1 / -1;
+	grid-column: 1 / -1; /* spans full width of the grid */
 	display: flex;
 	gap: 10px;
 	margin-top: 8px;
 }
 
 /* ============================================================
-   TOOLBAR (search + filter row)
+   TOOLBAR — row above a table with search, filter, and Add.
+   Items align in a single line and wrap if needed.
    ============================================================ */
 .toolbar {
 	display: flex;
@@ -432,6 +490,7 @@ td {
 	margin-bottom: 16px;
 }
 
+/* Search input grows to fill available space */
 .toolbar input[type="text"],
 .toolbar input[type="search"] {
 	flex: 1;
@@ -448,6 +507,7 @@ td {
 	border-color: var(--gold);
 }
 
+/* Plan filter dropdown */
 .toolbar select {
 	padding: 9px 14px;
 	border: 1px solid var(--border);
@@ -461,6 +521,7 @@ td {
 	border-color: var(--gold);
 }
 
+/* "Showing X members" counter — pushed to the far right */
 .toolbar .count {
 	font-size: 0.85rem;
 	color: var(--text-light);
@@ -468,22 +529,27 @@ td {
 }
 
 /* ============================================================
-   MODAL
+   MODAL — full-screen dark overlay with a centered white box.
+   Shown/hidden by toggling the .hidden class via JS.
    ============================================================ */
+
+/* Overlay covers the entire screen with a semi-transparent black */
 .modal-overlay {
-	display: flex;
-	position: fixed;
-	inset: 0;
+	display: flex;           /* centers the modal box inside */
+	position: fixed;         /* covers viewport even when page scrolls */
+	inset: 0;                /* shorthand for top/right/bottom/left: 0 */
 	background: rgba(0, 0, 0, 0.5);
-	z-index: 1000;
+	z-index: 1000;           /* above everything else */
 	justify-content: center;
 	align-items: center;
 }
 
+/* Hidden state — JS adds/removes this class to open/close */
 .modal-overlay.hidden {
 	display: none;
 }
 
+/* The white box centered inside the overlay */
 .modal {
 	background: var(--bg-card);
 	border-radius: var(--radius);
@@ -493,7 +559,7 @@ td {
 	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
-/* Header row with title + close button */
+/* Modal top row: title on the left, ✕ close button on the right */
 .modal-header {
 	display: flex;
 	justify-content: space-between;
@@ -507,6 +573,7 @@ td {
 	font-size: 1.3rem;
 }
 
+/* Close button — no background, just the × symbol */
 .modal-close {
 	background: none;
 	border: none;
@@ -519,7 +586,7 @@ td {
 	color: var(--text);
 }
 
-/* Footer row with action buttons */
+/* Modal bottom row: action buttons right-aligned */
 .modal-footer {
 	display: flex;
 	justify-content: flex-end;
@@ -527,7 +594,7 @@ td {
 	margin-top: 20px;
 }
 
-/* Delete modal */
+/* Title for modals that don't use modal-header (e.g. delete modal) */
 .modal h2 {
 	font-family: 'Playfair Display', serif;
 	color: var(--primary);
@@ -535,7 +602,7 @@ td {
 	margin-bottom: 20px;
 }
 
-/* Button variants used in modals */
+/* Gold filled — confirm/save action inside a modal */
 .btn-primary {
 	background: var(--gold);
 	color: var(--primary);
@@ -545,6 +612,7 @@ td {
 	background: var(--gold-hover);
 }
 
+/* Grey outline — cancel action inside a modal */
 .btn-secondary {
 	background: none;
 	color: var(--text-light);
@@ -556,6 +624,7 @@ td {
 	color: var(--text);
 }
 
+/* Red filled — destructive action (delete confirmation) */
 .btn-danger {
 	background: var(--red);
 	color: #fff;
@@ -565,7 +634,7 @@ td {
 	background: var(--red-hover);
 }
 
-/* Form label/input inside modal */
+/* Standalone label class (used inside modals, not form-group) */
 .label {
 	font-size: 0.82rem;
 	font-weight: 600;
@@ -574,6 +643,7 @@ td {
 	display: block;
 }
 
+/* Standalone input class (used inside modals, not form-group) */
 .input {
 	width: 100%;
 	padding: 9px 12px;
@@ -592,16 +662,15 @@ td {
 	box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
 }
 
+/* Inline validation error message below a field */
 .error-msg {
 	color: var(--red);
 	font-size: 0.82rem;
 	margin-top: 6px;
 }
 
-
-
 /* ============================================================
-   FOOTER
+   FOOTER — small copyright line at the bottom of each page
    ============================================================ */
 .admin-footer {
 	margin-top: 40px;
@@ -613,21 +682,25 @@ td {
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — adjusts layout for smaller screens.
+   Two breakpoints: tablet (≤ 900px) and mobile (≤ 640px).
    ============================================================ */
 
 /* --- Tablet (≤ 900px) --- */
 @media (max-width: 900px) {
+	/* Sidebar shrinks slightly */
 	.sidebar {
 		width: 200px;
 		padding: 16px 12px;
 	}
 
+	/* Main content shifts left to match narrower sidebar */
 	.main-content {
 		margin-left: 200px;
 		padding: 20px;
 	}
 
+	/* Form goes single column — two columns is too cramped */
 	.form-grid {
 		grid-template-columns: 1fr;
 	}
@@ -645,52 +718,75 @@ td {
 
 /* --- Mobile (≤ 640px) --- */
 @media (max-width: 640px) {
-	/* Sidebar becomes a top bar */
+	/* Sidebar becomes a top bar — body switches to column layout */
 	body {
 		flex-direction: column;
 	}
 
+	/* Sidebar spans full width as a horizontal top bar */
 	.sidebar {
-		position: relative;
+		position: relative; /* no longer fixed — scrolls with page */
 		width: 100%;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
-		padding: 12px;
+		align-items: center;
+		padding: 10px 16px;
+		gap: 8px;
 	}
 
+	/* Brand goes horizontal: logo + text side by side */
 	.sidebar-brand {
-		margin-bottom: 8px;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 0;
+		font-size: 1.1rem;
 	}
 
+	/* Smaller logo so it fits in the top bar */
+	.sidebar-brand img {
+		width: 36px;
+		height: 36px;
+	}
+
+	/* Nav links in a row, wrapping onto a second line if needed */
 	.sidebar-nav {
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 4px;
+		width: 100%;
 	}
 
+	/* Compact nav link padding for small screens */
+	.sidebar-nav a {
+		font-size: 0.82rem;
+		padding: 6px 10px;
+	}
+
+	/* No left margin needed — sidebar is now above, not beside */
 	.main-content {
 		margin-left: 0;
 		padding: 16px;
 	}
 
-	/* Cards take less padding */
+	/* Cards take less padding to save space */
 	.card {
 		padding: 16px;
 	}
 
-	/* Modal goes full width with small margin */
+	/* Modal goes full width with a small margin on each side */
 	.modal {
 		max-width: calc(100% - 32px);
 		padding: 20px;
 	}
 
-	/* Toolbar stacks vertically */
+	/* Toolbar stacks vertically so each control has its own line */
 	.toolbar {
 		flex-direction: column;
 		align-items: stretch;
 	}
 
+	/* Inputs and selects take full width when stacked */
 	.toolbar input,
 	.toolbar select {
 		width: 100%;

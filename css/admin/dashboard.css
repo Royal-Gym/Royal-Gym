@@ -1,10 +1,15 @@
 /* ============================================================
    dashboard.css — Styles specific to admin/dashboard.html
-   Depends on: admin.css (shared base styles)
+   Depends on: admin.css (must be loaded first)
+   This file only adds dashboard-specific components:
+   stat cards, bar chart, two-column layout, and table animations.
    ============================================================ */
 
+
 /* ============================================================
-   STAT CARDS
+   STAT CARDS — the 4 summary boxes at the top of the dashboard.
+   (Total Members, Active Subscriptions, Classes Today, Popular Plan)
+   auto-fit makes columns flexible: as many as fit, min 200px each.
    ============================================================ */
 .stats-grid {
   display: grid;
@@ -13,14 +18,16 @@
   margin-bottom: 28px;
 }
 
+/* Each card: white box with a gold left border as a visual accent */
 .stat-card {
   background: var(--bg-card);
   padding: 20px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--gold); /* gold stripe on the left edge */
 }
 
+/* Small uppercase label above the number (e.g. "TOTAL MEMBERS") */
 .stat-card .stat-label {
   font-size: 0.8rem;
   color: var(--text-light);
@@ -29,44 +36,54 @@
   margin-bottom: 6px;
 }
 
+/* The big number displayed on each card */
 .stat-card .stat-value {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary);
 }
 
+
 /* ============================================================
-   RECENT REGISTRATIONS TABLE (tbody)
+   TABLE ROWS — animated, striped, hover highlight.
+   Applied to tbody rows on both the Recent Registrations table
+   and any other table rendered on the dashboard.
    ============================================================ */
+
+/* Each row fades in from slightly below when rendered */
 tbody tr {
   transition: background 0.2s ease, box-shadow 0.2s ease;
   animation: rowFadeIn 0.3s ease both;
 }
 
+/* Zebra striping — even rows get a very light grey tint */
 tbody tr:nth-child(even) {
   background: #fafbfc;
 }
 
+/* Hover — warm gold tint + left gold bar to draw the eye */
 tbody tr:hover {
   background: #fff8e8;
-  box-shadow: inset 3px 0 0 var(--gold);
+  box-shadow: inset 3px 0 0 var(--gold); /* left gold stripe on hover */
 }
 
+/* Remove the bottom border from the last row so it doesn't double up */
 tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* Email cell — muted, italic */
+/* Last cell in each row (e.g. Email) — muted italic style */
 tbody td:last-child {
   color: var(--text-light);
   font-size: 0.82rem;
   font-style: italic;
 }
 
+/* Fade-in + slide-up animation played once when a row is added */
 @keyframes rowFadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(4px); /* starts 4px below its final position */
   }
 
   to {
@@ -75,21 +92,28 @@ tbody td:last-child {
   }
 }
 
+
 /* ============================================================
-   BAR CHART
+   BAR CHART — horizontal bar chart showing plan distribution.
+   Each row: [label] [track (grey bar)] [bar (colored)] [count]
+   The bar width is set by JS as a percentage (e.g. style="width:60%")
    ============================================================ */
+
+/* Vertical stack of chart rows */
 .chart-container {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
+/* One row of the chart: label + track + count, all on one line */
 .chart-row {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Plan name label — fixed width so all bars start at the same position */
 .chart-row .chart-label {
   width: 70px;
   font-size: 0.82rem;
@@ -98,21 +122,24 @@ tbody td:last-child {
   text-align: right;
 }
 
+/* Grey background track — the full-width container behind the colored bar */
 .chart-row .chart-track {
-  flex: 1;
+  flex: 1;             /* grows to fill remaining space */
   height: 28px;
   background: var(--bg-page);
-  border-radius: 14px;
-  overflow: hidden;
+  border-radius: 14px; /* pill shape */
+  overflow: hidden;    /* clips the colored bar to the track boundary */
 }
 
+/* Colored fill bar — width set by JS as a percentage */
 .chart-row .chart-bar {
   height: 100%;
   border-radius: 14px;
-  transition: width 0.6s ease;
-  min-width: 2px;
+  transition: width 0.6s ease; /* animates when JS updates the width */
+  min-width: 2px;              /* always visible even at 0% */
 }
 
+/* Number label to the right of the track */
 .chart-row .chart-count {
   width: 30px;
   font-size: 0.85rem;
@@ -120,36 +147,44 @@ tbody td:last-child {
   color: var(--primary);
 }
 
+/* Individual bar colors per plan */
 #bar-starter {
-  background: var(--green);
+  background: var(--green); /* Starter = green */
 }
 
 #bar-elite {
-  background: var(--blue);
+  background: var(--blue);  /* Elite = blue */
 }
 
 #bar-royal {
-  background: var(--gold);
+  background: var(--gold);  /* Royale = gold */
 }
 
+
 /* ============================================================
-   TWO COLUMN LAYOUT
+   TWO COLUMN LAYOUT — splits the dashboard lower section into:
+   left (wider): Recent Registrations table
+   right (narrower): Plan Distribution bar chart
    ============================================================ */
 .two-col {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr; /* table gets twice the width of chart */
   gap: 24px;
 }
 
+
 /* ============================================================
-   RESPONSIVE (dashboard-specific overrides)
+   RESPONSIVE — dashboard-specific overrides for smaller screens
    ============================================================ */
+
+/* Tablet: two-col stacks into a single column */
 @media (max-width: 900px) {
   .two-col {
     grid-template-columns: 1fr;
   }
 }
 
+/* Mobile: stat cards go 2-per-row instead of 4-per-row */
 @media (max-width: 640px) {
   .stats-grid {
     grid-template-columns: 1fr 1fr;

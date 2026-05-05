@@ -1,4 +1,17 @@
-/* Playfair Display */
+/* ============================================================
+   login.css — Standalone styles for admin/login.html
+   This page is NOT part of the admin shell (no sidebar).
+   It has its own font imports, variables, and layout.
+   ============================================================ */
+
+
+/* ============================================================
+   FONTS — loaded locally, no internet required.
+   Same font files as the rest of the project, but login.css
+   declares them independently since it doesn't load admin.css.
+   ============================================================ */
+
+/* Playfair Display — used for the gym name heading */
 @font-face {
     font-family: 'Playfair Display';
     src: url('../../assets/fonts/playfair/playfair-600.woff2') format('woff2');
@@ -15,6 +28,7 @@
     font-display: swap;
 }
 
+/* Italic variant — used for the decorative h1 on the login card */
 @font-face {
     font-family: 'Playfair Display';
     src: url('../../assets/fonts/playfair/playfair-700-italic.woff2') format('woff2');
@@ -23,7 +37,7 @@
     font-display: swap;
 }
 
-/* Roboto */
+/* Roboto — used for all other text (labels, inputs, button) */
 @font-face {
     font-family: 'Roboto';
     src: url('../../assets/fonts/roboto/roboto-300.woff2') format('woff2');
@@ -48,16 +62,24 @@
     font-display: swap;
 }
 
+
+/* ============================================================
+   VARIABLES — login page has its own color set.
+   Note: --bg and --bg2 together form the diagonal gradient.
+   ============================================================ */
 :root {
-    --primary: #1a0a2e;
-    --accent: #d4af37;
-    --bg: #f5f0ff;
-    --bg-darker: #bfbbc9;
-    --text-dark: #100618;
-    --text-light: #fff;
-    --error: #ff4d4d;
+    --primary: #1a0a2e;   /* deep purple — card headings, button bg */
+    --accent: #d4af37;    /* gold — borders, highlights, hover */
+    --bg: #f5f0ff;        /* light lavender — card background */
+    --bg-darker: #bfbbc9; /* muted grey-purple — input borders */
+    --text-dark: #100618; /* near-black — body text */
+    --text-light: #fff;   /* white — body background text */
+    --error: #ff4d4d;     /* red — validation error messages */
 }
- 
+
+/* ============================================================
+   RESET — removes browser default spacing and sets box-sizing
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -66,17 +88,24 @@
     padding: 0;
 }
 
+
+/* ============================================================
+   PAGE LAYOUT — full-viewport dark gradient background.
+   The login card is centered both horizontally and vertically.
+   ============================================================ */
 body {
     background-color: var(--bg);
+    /* Diagonal gradient from deep purple to dark navy */
     background: linear-gradient(135deg, var(--primary) 0%, var(--bg2, #212133) 100%);
     color: var(--text-dark);
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; /* gradient fills the full screen height */
 }
 
+/* Centers the login card horizontally with padding for small screens */
 main {
     width: 100%;
     display: flex;
@@ -84,6 +113,11 @@ main {
     padding: 1rem;
 }
 
+
+/* ============================================================
+   LOGIN CARD — the white floating card in the center.
+   Has a gold glow, rounded corners, and a fade-in animation.
+   ============================================================ */
 #login-container {
     background-color: var(--bg);
     max-width: 450px;
@@ -91,11 +125,13 @@ main {
     padding: 3rem;
     border-radius: 3rem;
     border: 0.2rem solid var(--accent);
+    /* Two shadows: depth shadow + gold ambient glow */
     box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.3), 0rem 0rem 2rem var(--accent);
     text-align: center;
-    animation: fadeIn 0.8s ease-out;
+    animation: fadeIn 0.8s ease-out; /* card slides up on page load */
 }
 
+/* Card entrance animation — fades in while rising from 20px below */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -108,6 +144,12 @@ main {
     }
 }
 
+
+/* ============================================================
+   HEADER INSIDE CARD — gym name, subtitle, and description
+   ============================================================ */
+
+/* Gym name — large italic serif for a premium feel */
 header h1 {
     font-family: "Playfair Display", serif;
     font-style: italic;
@@ -116,6 +158,7 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
+/* "Admin Panel" subtitle — uppercase gold with wide letter spacing */
 header h2 {
     color: var(--accent);
     font-size: 1.2rem;
@@ -124,25 +167,36 @@ header h2 {
     margin-bottom: 1rem;
 }
 
+/* Short descriptive text below the subtitle */
 header p {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 2rem;
 }
 
+
+/* ============================================================
+   FORM — fieldset/legend are used for accessibility but hidden
+   visually since the card design replaces them.
+   ============================================================ */
+
+/* Remove the default visible border around the fieldset */
 fieldset {
     border: none;
 }
 
+/* Hide the legend text — it's only for screen readers */
 legend {
     display: none;
 }
 
+/* Each label + input pair — left-aligned, spaced below */
 .form-group {
     text-align: left;
     margin-bottom: 1.5rem;
 }
 
+/* Bold label above each input */
 label {
     display: block;
     font-weight: bold;
@@ -150,6 +204,7 @@ label {
     color: var(--primary);
 }
 
+/* Text inputs — full width, large padding, rounded corners */
 input {
     width: 100%;
     padding: 1rem;
@@ -160,12 +215,18 @@ input {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+/* Gold border + subtle glow when the user clicks into a field */
 input:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
+
+/* ============================================================
+   SUBMIT BUTTON — full width, dark background with gold text.
+   Inverts on hover: gold background, dark text.
+   ============================================================ */
 .button {
     width: 100%;
     padding: 1.2rem;
@@ -180,6 +241,7 @@ input:focus {
     margin-top: 1rem;
 }
 
+/* Hover: background becomes gold, text becomes dark, slight scale up */
 .button:hover {
     background-color: var(--accent);
     color: var(--primary);
@@ -187,12 +249,22 @@ input:focus {
     box-shadow: 0rem 0.5rem 1.5rem rgba(212, 175, 55, 0.4);
 }
 
+
+/* ============================================================
+   ERROR MESSAGE — shown below the form when login fails.
+   The element always exists in the DOM; JS writes text into it.
+   min-height reserves the space so the card doesn't jump.
+   ============================================================ */
 #error-display {
     font-weight: bold;
-    min-height: 20px;
+    min-height: 20px; /* prevents layout shift when message appears */
     font-size: 0.85rem;
 }
 
+
+/* ============================================================
+   CARD FOOTER — "Don't have access?" link section at the bottom
+   ============================================================ */
 footer {
     margin-top: 2rem;
     border-top: 1px solid var(--bg-darker);
@@ -203,6 +275,7 @@ footer p {
     font-size: 0.9rem;
 }
 
+/* Footer links — dark purple, bold */
 footer a {
     color: var(--primary);
     text-decoration: none;
@@ -210,10 +283,16 @@ footer a {
     transition: color 0.2s;
 }
 
+/* Hover: link turns gold */
 footer a:hover {
     color: var(--accent);
 }
 
+
+/* ============================================================
+   RESPONSIVE — on very small phones reduce card padding
+   and corner radius to avoid the card touching screen edges.
+   ============================================================ */
 @media (max-width: 480px) {
     #login-container {
         padding: 2rem;
