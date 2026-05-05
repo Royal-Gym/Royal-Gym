@@ -13,7 +13,9 @@ const initStorage = () => {
   }
 
   let plansData = localStorage.getItem("plans");
-  if (plansData === null) {
+  let parsedPlans = plansData ? JSON.parse(plansData) : null;
+  // Re-seed if missing OR if stored in old { male: [], female: [] } format
+  if (parsedPlans === null || !Array.isArray(parsedPlans)) {
     localStorage.setItem("plans", JSON.stringify(membershipPlans));
   }
 

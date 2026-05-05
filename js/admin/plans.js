@@ -1,171 +1,168 @@
-let editingPlanId = null;
 
-const defaultPlans = [
-  {
-    id: 1,
-    name: "Starter",
-    price: 4900,
-    duration: "1-month",
-    description: "Equipment access, Standard locker, Standard support"
-  },
-  {
-    id: 2,
-    name: "Elite",
-    price: 14900,
-    duration: "1-month",
-    description: "All Starter + Sauna & Steam, Meal plan, Priority support"
-  },
-  {
-    id: 3,
-    name: "Royale",
-    price: 24900,
-    duration: "1-month",
-    description: "All Elite + Personal Training, 1-on-1 coaching, Massage"
-  }
-];
+let editingId = null;
+let deletingId = null;
+
+// ── LocalStorage helpers ──
 
 function getPlans() {
   let data = localStorage.getItem("plans");
-  if (data) {
-    let parsed = JSON.parse(data);
-    let needsSave = false;
-    parsed = parsed.map((p, index) => {
-      if (!p.id) {
-        needsSave = true;
-        return { ...p, id: Date.now() + index };
-      }
-      return p;
-    });
-    if (needsSave) savePlans(parsed);
-    return parsed;
-  } else {
-    savePlans(defaultPlans);
-    return defaultPlans;
-  }
+  let plans = JSON.parse(data);
+  // Guard: if stored in old { male: [], female: [] } format, return empty
+  if (plans && !Array.isArray(plans)) return [];
+  return plans || [];
 }
 
 function savePlans(plans) {
   localStorage.setItem("plans", JSON.stringify(plans));
 }
 
+// ── Render ──
+
 function renderPlans() {
   let plans = getPlans();
   let tbody = document.getElementById("plans-tbody");
   tbody.innerHTML = "";
 
-  plans.forEach((plan) => {
-    let durationString = String(plan.duration || "1-month");
-    let durationText = durationString.replace('-', ' ');
-    durationText = durationText.charAt(0).toUpperCase() + durationText.slice(1);
-    
-    let descText = plan.description || (plan.features ? plan.features.join(", ") : "");
+  // Search filter
+  let search = document.getElementById("plan-search").value.toLowerCase();
 
-    tbody.innerHTML += `
-      <tr>
-        <td>${plan.name}</td>
-        <td>${plan.price.toLocaleString()} DA</td>
-        <td>${durationText}</td>
-        <td>${descText}</td>
-        <td>
-          <button class="btn btn-edit" onclick="editPlan(${plan.id})">Edit</button>
-          <button class="btn btn-delete" onclick="deletePlan(${plan.id})">Delete</button>
-        </td>
-      </tr>
-    `;
-  });
-}
-
-function deletePlan(id) {
-  if (confirm("Are you sure you want to delete this plan?")) {
-    let plans = getPlans();
-    plans = plans.filter(p => p.id !== id);
-    savePlans(plans);
-    renderPlans();
+  if (search !== "") {
+    plans = plans.filter(p =>
+      p.name.toLowerCase().includes(search) ||
+      p.features.join(", ").toLowerCase().includes(search)
+    );
   }
+
+  tbody.innerHTML = plans.map(plan => `
+    <tr>
+      <td>${plan.name}</td>
+      <td>${Number(plan.price).toLocaleString()} DA</td>
+      <td>${plan.duration}</td>
+      <td>${plan.features.join(", ")}</td>
+      <td>
+        <button class="btn btn-edit" onclick="openEditModal(${plan.id})">Edit</button>
+        <button class="btn btn-delete" onclick="openDeleteModal(${plan.id})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+
+  document.getElementById("plan-count").textContent = plans.length;
 }
 
-function editPlan(id) {
-  editingPlanId = id;
+// ── Delete modal ──
+
+function openDeleteModal(id) {
+  deletingId = id;
+  document.getElementById("deleteModal").classList.remove("hidden");
+}
+
+function closeDeleteModal() {
+  document.getElementById("deleteModal").classList.add("hidden");
+  deletingId = null;
+}
+
+function confirmDelete() {
+  let plans = getPlans();
+  plans = plans.filter(p => p.id !== deletingId);
+  savePlans(plans);
+  closeDeleteModal();
+  renderPlans();
+}
+
+// ── Add / Edit modal ──
+
+function openAddModal() {
+  editingId = null;
+  document.getElementById("modalTitle").textContent = "Add Plan";
+  document.getElementById("inputName").value = "";
+  document.getElementById("inputPrice").value = "";
+  document.getElementById("inputDuration").value = "";
+  document.getElementById("inputFeatures").value = "";
+  document.getElementById("planModal").classList.remove("hidden");
+}
+
+function openEditModal(id) {
+  editingId = id;
   let plans = getPlans();
   let plan = plans.find(p => p.id === id);
 
-  if (plan) {
-    document.getElementById("plan-name").value = plan.name;
-    document.getElementById("plan-price").value = plan.price;
-    document.getElementById("plan-duration").value = plan.duration || "1-month";
-    document.getElementById("plan-description").value = plan.description || (plan.features ? plan.features.join(", ") : "");
-
-    // Change form title and button text to indicate editing
-    let titles = document.querySelectorAll(".card-title");
-    if(titles.length > 1) titles[1].textContent = "Edit Plan";
-    document.querySelector(".btn-submit").textContent = "Update Plan";
-    
-    // Scroll to form
-    document.getElementById("plan-form").scrollIntoView({ behavior: 'smooth' });
-  }
+  document.getElementById("modalTitle").textContent = "Edit Plan";
+  document.getElementById("inputName").value = plan.name;
+  document.getElementById("inputPrice").value = plan.price;
+  document.getElementById("inputDuration").value = plan.duration;
+  document.getElementById("inputFeatures").value = plan.features.join(", ");
+  document.getElementById("planModal").classList.remove("hidden");
 }
 
-function resetForm() {
-  editingPlanId = null;
-  let titles = document.querySelectorAll(".card-title");
-  if(titles.length > 1) titles[1].textContent = "Add New Plan";
-  document.querySelector(".btn-submit").textContent = "Add Plan";
+function closeModal() {
+  document.getElementById("planModal").classList.add("hidden");
+  document.getElementById("errorMsg").classList.add("hidden");
 }
 
-document.getElementById("plan-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+function savePlan() {
+  let name = document.getElementById("inputName").value.trim();
+  let price = document.getElementById("inputPrice").value.trim();
+  let duration = document.getElementById("inputDuration").value.trim();
+  let featuresRaw = document.getElementById("inputFeatures").value.trim();
 
-  let name = document.getElementById("plan-name").value.trim();
-  let price = document.getElementById("plan-price").value.trim();
-  let duration = document.getElementById("plan-duration").value;
-  let description = document.getElementById("plan-description").value.trim();
-
-  if (!name || !price || !duration || !description) {
-    alert("Please fill in all required fields.");
+  // Validation — all fields required
+  if (name === "" || price === "" || duration === "" || featuresRaw === "") {
+    alert("Please fill in all the fields.");
     return;
   }
 
+  let features = featuresRaw.split(",").map(f => f.trim()).filter(f => f !== "");
   let plans = getPlans();
 
-  // Basic duplicate check (only by name for now, excluding currently editing plan)
-  let duplicate = plans.find(p => p.name.toLowerCase() === name.toLowerCase() && p.id !== editingPlanId);
+  // Duplicate name check
+  let duplicate = plans.find(p => p.name.toLowerCase() === name.toLowerCase() && p.id !== editingId);
   if (duplicate) {
-    alert("A plan with this name already exists.");
+    document.getElementById("errorMsg").classList.remove("hidden");
     return;
   }
 
-  if (editingPlanId) {
+  if (editingId) {
     // Update existing plan
-    plans = plans.map(p => 
-      p.id === editingPlanId ? { ...p, name, price: Number(price), duration, description } : p
+    plans = plans.map(p =>
+      p.id === editingId
+        ? { ...p, name, price: Number(price), duration, features }
+        : p
     );
+    editingId = null;
   } else {
-    // Add new plan
+    // Create new plan
     let newPlan = {
       id: Date.now(),
-      name,
+      name: name,
       price: Number(price),
-      duration,
-      description
+      duration: duration,
+      features: features
     };
     plans.push(newPlan);
   }
 
   savePlans(plans);
-  
-  // Explicitly reset form fields since we prevented default
-  document.getElementById("plan-form").reset();
-  resetForm();
-  
+  closeModal();
   renderPlans();
+}
+
+// ── Close modal on overlay click ──
+document.getElementById("planModal").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("planModal")) {
+    closeModal();
+  }
 });
 
-document.getElementById("plan-form").addEventListener("reset", function(e) {
-  // Use timeout to let the default reset finish clearing the fields
-  setTimeout(() => {
-    resetForm();
-  }, 0);
+// ── Close modals on Escape key ──
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+    closeDeleteModal();
+  }
 });
 
-// Initialize
+// ── Search listener ──
+document.getElementById("plan-search").addEventListener("input", renderPlans);
+
+// ── Initial render ──
 renderPlans();

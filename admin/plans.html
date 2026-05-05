@@ -34,6 +34,23 @@
 		<!-- Current Plans Table -->
 		<div class="card">
 			<h2 class="card-title">Current Plans</h2>
+
+			<!-- Toolbar: search + add button -->
+			<div class="toolbar">
+				<input
+					type="text"
+					id="plan-search"
+					placeholder="Search by name or feature..."
+				/>
+				<button class="btn btn-gold" onclick="openAddModal()">
+					Add Plan
+				</button>
+				<span class="count"
+					>Showing
+					<strong id="plan-count">0</strong> plans</span
+				>
+			</div>
+
 			<table>
 				<thead>
 					<tr>
@@ -45,87 +62,9 @@
 					</tr>
 				</thead>
 				<tbody id="plans-tbody">
-					<tr>
-						<td>Starter</td>
-						<td>4,900 DA</td>
-						<td>1 month</td>
-						<td>
-							Equipment access, Standard locker, Standard
-							support
-						</td>
-						<td>
-							<button class="btn btn-edit">Edit</button>
-							<button class="btn btn-delete" onclick="deletePlan()">
-								Delete
-							</button>
-						</td>
-					</tr>
-					<tr>
-						<td>Elite</td>
-						<td>14,900 DA</td>
-						<td>1 month</td>
-						<td>
-							All Starter + Sauna & Steam, Meal plan, Priority
-							support
-						</td>
-						<td>
-							<button class="btn btn-edit">Edit</button>
-							<button class="btn btn-delete">Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td>Royale</td>
-						<td>24,900 DA</td>
-						<td>1 month</td>
-						<td>
-							All Elite + Personal Training, 1-on-1 coaching,
-							Massage
-						</td>
-						<td>
-							<button class="btn btn-edit">Edit</button>
-							<button class="btn btn-delete">Delete</button>
-						</td>
-					</tr>
+					<!-- Rendered by plans.js -->
 				</tbody>
 			</table>
-		</div>
-
-		<!-- Add New Plan Form -->
-		<div class="card">
-			<h2 class="card-title">Add New Plan</h2>
-			<form id="plan-form" class="form-grid" action="#" method="post" novalidate>
-				<div class="form-group">
-					<label for="plan-name">Plan Name</label>
-					<input id="plan-name" type="text" placeholder="e.g. Platinum" required />
-				</div>
-				<div class="form-group">
-					<label for="plan-price">Price (DA)</label>
-					<input id="plan-price" type="number" placeholder="e.g. 20000" required />
-				</div>
-				<div class="form-group">
-					<label for="plan-duration">Duration</label>
-					<select id="plan-duration" required>
-						<option value="">Select duration</option>
-						<option value="1-month">1 Month</option>
-						<option value="3-months">3 Months</option>
-						<option value="6-months">6 Months</option>
-						<option value="1-year">1 Year</option>
-					</select>
-				</div>
-				<div class="form-group full-width">
-					<label for="plan-description">Description</label>
-					<textarea id="plan-description" placeholder="List features and benefits separated by commas"
-						required></textarea>
-				</div>
-				<div class="form-actions">
-					<button type="submit" class="btn btn-submit">
-						Add Plan
-					</button>
-					<button type="reset" class="btn btn-cancel">
-						Reset
-					</button>
-				</div>
-			</form>
 		</div>
 
 		<footer class="admin-footer">
@@ -134,6 +73,91 @@
 				reserved.
 			</p>
 		</footer>
+	</div>
+
+	<!-- ========== ADD / EDIT PLAN MODAL ========== -->
+	<div id="planModal" class="modal-overlay hidden">
+		<div class="modal">
+			<div class="modal-header">
+				<h2 id="modalTitle">Add Plan</h2>
+				<button class="modal-close" onclick="closeModal()">
+					✕
+				</button>
+			</div>
+
+			<div class="form-group">
+				<label class="label">Plan Name</label>
+				<input
+					type="text"
+					id="inputName"
+					class="input"
+					placeholder="e.g. Platinum"
+				/>
+			</div>
+			<div class="form-group">
+				<label class="label">Price (DA)</label>
+				<input
+					type="number"
+					id="inputPrice"
+					class="input"
+					placeholder="e.g. 20000"
+				/>
+			</div>
+			<div class="form-group">
+				<label class="label">Duration</label>
+				<select id="inputDuration" class="input select">
+					<option value="">Select duration</option>
+					<option value="1 month">1 Month</option>
+					<option value="3 months">3 Months</option>
+					<option value="6 months">6 Months</option>
+					<option value="1 year">1 Year</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label class="label">Features</label>
+				<textarea
+					id="inputFeatures"
+					class="input"
+					placeholder="List features separated by commas, e.g. Gym access, Sauna, Meal plan"
+					style="min-height: 80px; resize: vertical"
+				></textarea>
+			</div>
+
+			<p class="error-msg hidden" id="errorMsg">
+				⚠ A plan with this name already exists.
+			</p>
+
+			<div class="modal-footer">
+				<button class="btn btn-secondary" onclick="closeModal()">
+					Cancel
+				</button>
+				<button class="btn btn-primary" onclick="savePlan()">
+					Save
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- ========== DELETE CONFIRMATION MODAL ========== -->
+	<div id="deleteModal" class="modal-overlay hidden">
+		<div class="modal">
+			<h2>Delete Plan?</h2>
+			<p style="color: var(--text-light); margin: 0.5rem 0 1.5rem">
+				This action cannot be undone. Members on this plan will
+				need to be reassigned.
+			</p>
+			<div class="modal-footer">
+				<button
+					class="btn btn-secondary"
+					onclick="closeDeleteModal()"
+				>
+					Cancel
+				</button>
+				<button class="btn btn-danger" onclick="confirmDelete()">
+					Delete
+				</button>
+			</div>
+		</div>
 	</div>
 
 	<!-- Scripts -->

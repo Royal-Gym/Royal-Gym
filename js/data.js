@@ -9,60 +9,46 @@ const members = [
     { id: 8, name: "Lina Belarbi", gender: "Female", email: "lina.belarbi@gmail.com", phone: "0662233445", plan: "Elite", joinDate: "2024-04-19" },
 ];
 
-const membershipPlans = {
-    male: [
-        { 
-            name: "Starter", 
-            price: 4900, 
-            features: ["3 gym & 1 cardio visits/week", "Premium equipment access", "Standard locker", "Standard support"] 
-        },
-        { 
-            name: "Elite", 
-            price: 14900, 
-            features: ["All Starter benefits", "5 gym & 5 cardio visits/week", "Sauna & Steam rooms", "Meal plan", "Priority support"] 
-        },
-        { 
-            name: "Royale", 
-            price: 24900, 
-            features: ["All Elite benefits", "Unlimited access", "Personal Training Zone", "Monthly 1-on-1 coaching", "Massage services", "Dedicated concierge"] 
-        }
-    ],
-    female: [
-        { 
-            name: "Starter", 
-            price: 3900, 
-            features: ["2 gym & 1 cardio visits/week", "Premium equipment access", "Standard locker", "Standard support"] 
-        },
-        { 
-            name: "Elite", 
-            price: 12500, 
-            features: ["All Starter benefits", "4 gym & 4 cardio visits/week", "Sauna access", "Meal plan", "Priority support"] 
-        },
-        { 
-            name: "Royale", 
-            price: 21900, 
-            features: ["All Elite benefits", "Unlimited access", "Personal Training Zone", "Bi-monthly 1-on-1 coaching", "Towel service"] 
-        }
-    ]
-};
+const membershipPlans = [
+    {
+        id: 1,
+        name: "Starter",
+        price: 4900,
+        duration: "1 month",
+        features: ["3 gym & 1 cardio visits/week", "Premium equipment access", "Standard locker", "Standard support"]
+    },
+    {
+        id: 2,
+        name: "Elite",
+        price: 14900,
+        duration: "1 month",
+        features: ["All Starter benefits", "5 gym & 5 cardio visits/week", "Sauna & Steam rooms", "Meal plan", "Priority support"]
+    },
+    {
+        id: 3,
+        name: "Royale",
+        price: 24900,
+        duration: "1 month",
+        features: ["All Elite benefits", "Unlimited access", "Personal Training Zone", "Monthly 1-on-1 coaching", "Massage services", "Dedicated concierge"]
+    }
+];
 
 const trainers = [
     // --- SPECIALTY PAIRS (6 Males / 4 Females) ---
     { id: 1, name: "Alikhodja Yacine", specialty: "Strength Training", gender: "Male", experience: 8, bio: "Expert in muscle building." },
     { id: 2, name: "Sara Meziani", specialty: "Strength Training", gender: "Female", experience: 6, bio: "Specialist in body toning." },
-    
+
     { id: 3, name: "Achour Iskander", specialty: "Cardio Fitness", gender: "Male", experience: 5, bio: "Endurance and heart health expert." },
     { id: 4, name: "Meriem Haddad", specialty: "Cardio Fitness", gender: "Female", experience: 4, bio: "Aerobic conditioning specialist." },
-    
+
     { id: 5, name: "Djaber Mark", specialty: "Personal Training", gender: "Male", experience: 7, bio: "Custom goal-based fitness plans." },
     { id: 6, name: "Selma Belkaid", specialty: "Personal Training", gender: "Female", experience: 5, bio: "One-on-one lifestyle coaching." },
-    
+
     { id: 7, name: "Galileo Paul", specialty: "CrossFit", gender: "Male", experience: 6, bio: "Functional movement expert." },
     { id: 8, name: "Ines Rahmani", specialty: "CrossFit", gender: "Female", experience: 5, bio: "Cross-functional performance coach." },
 
     // Additional Male Trainers 
-    { id: 9, name: "Tarek Mansouri", specialty: "Boxing", gender: "Male", experience: 10, bio: "Professional boxing technique." },
-    { id: 10, name: "Walid Cherif", specialty: "Recovery", gender: "Male", experience: 8, bio: "Injury prevention specialist." }
+    { id: 9, name: "Tarek Mansouri", specialty: "Boxing", gender: "Male", experience: 10, bio: "Professional boxing technique." }
 ];
 
 const maleClasses = [
