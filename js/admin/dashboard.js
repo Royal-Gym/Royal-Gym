@@ -20,7 +20,7 @@
 // overwriting any data that was added or edited later.
 // ------------------------------------------------------------
 
-import { members, membershipPlans, trainers, maleClasses, femaleClasses } from './data.js';
+import { members, membershipPlans, trainers, maleClasses, femaleClasses } from '../data.js';
 const initStorage = () => {
 
   // Step 1: Check if localStorage key "members" exists
