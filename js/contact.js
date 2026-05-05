@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function validateName() {
         if (!nameRegex.test(nameInput.value.trim())) {
-            nameError.textContent = "Enter full name (e.g djaber boudjerda)";
+            nameError.textContent = "Enter full name (e.g. djaber boudjerda)";
             nameInput.classList.add("error-border");
             return false;
         }

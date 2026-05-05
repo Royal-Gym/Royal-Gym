@@ -98,7 +98,7 @@ header img {
     height: 3rem;
 }
 
-/* Hamburger button — hidden on desktop
+/* Hamburger button — hidden on desktop */
 .menu-toggle {
     display: none;
     background: none;
@@ -108,7 +108,7 @@ header img {
     font-size: 1.6rem;
     padding: 0.3rem 0.6rem;
     cursor: pointer;
-} */
+}
 
 /* navigation list */
 header nav ul {
@@ -151,8 +151,7 @@ a {
     text-decoration: none;
 }
 
-/* need explanation */
-/* ── Mobile nav ── */
+/* Mobile */
 @media screen and (max-width: 768px) {
     .menu-toggle {
         display: block;

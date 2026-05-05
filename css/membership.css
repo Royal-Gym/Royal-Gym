@@ -25,8 +25,6 @@ body {
 	margin-top: 30px;
 }
 
-/* need explanation only the media queries*/
-
 @media (max-width: 900px) {
 	.plans-grid {
 		grid-template-columns: repeat(2, 1fr);

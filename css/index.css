@@ -304,9 +304,7 @@ footer>p {
 	margin-top: 2rem;
 }
 
-/* //  need explanation  */
-
-/* ── Tablet ── */
+/* Tablet */
 @media screen and (max-width: 768px) {
 	.hero>h1 {
 		font-size: 4rem;

@@ -1,7 +1,7 @@
 // ── Plan selection ─────────────────────────────────────────────────────────
 document.querySelectorAll('.plan-card .btn-ghost').forEach((button, index) => {
 	button.addEventListener('click', () => {
-		const planValues = ['bronze', 'silver', 'gold'];
+		const planValues = ['Starter', 'Elite', 'Royal'];
 		const radio = document.querySelector(`input[name="plan"][value="${planValues[index]}"]`);
 		if (radio) {
 			radio.checked = true;
@@ -14,16 +14,29 @@ document.querySelectorAll('.plan-card .btn-ghost').forEach((button, index) => {
 document.getElementById("register-form").addEventListener("submit", function (e) {
 	e.preventDefault()
 
-	const nameOk  = validateName()
+	const nameOk = validateName()
 	const emailOk = validateEmail()
-	const dobOk   = validateDob()
+	const dobOk = validateDob()
 	const phoneOk = validatePhone()
 	const genderOk = validateGender()
 
 	if (nameOk && emailOk && dobOk && phoneOk && genderOk) {
 		// Save member data
-		saveMemberData()
-		document.getElementById("success-msg").style.display = "block"
+		const isSaved = saveMemberData()
+		if (isSaved) {
+			document.getElementById("success-msg").style.display = "block"
+			document.getElementById("register-form").reset()
+			// Remove success classes from inputs
+			document.querySelectorAll('.input--success').forEach(el => {
+				el.classList.remove('input--success')
+			})
+			document.querySelectorAll('.field-msg--success').forEach(el => {
+				el.textContent = ''
+				el.className = 'field-msg'
+			})
+		} else {
+			document.getElementById("success-msg").style.display = "none"
+		}
 	} else {
 		document.getElementById("success-msg").style.display = "none"
 	}
@@ -39,7 +52,7 @@ document.getElementById("dob").addEventListener("change", validateDob)
 // ── Validators ───────────────────────────────────────────────────────────────
 function validateName() {
 	const input = document.getElementById("fullname")
-	const name  = input.value.trim()
+	const name = input.value.trim()
 	if (name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
 		setError(input, "fullname-error", "Name must be at least 3 letters only")
 		return false
@@ -60,7 +73,7 @@ function validateEmail() {
 }
 
 function validateDob() {
-	const input    = document.getElementById("dob")
+	const input = document.getElementById("dob")
 	const dobValue = input.value
 	if (!dobValue) {
 		setError(input, "dob-error", "Please enter your date of birth")
@@ -112,6 +125,13 @@ function saveMemberData() {
 	// Get existing members
 	let members = JSON.parse(localStorage.getItem("members")) || []
 
+	// Check for duplicate email
+	let duplicate = members.find(m => m.email === email)
+	if (duplicate) {
+		setError(document.getElementById("email"), "email-error", "This email is already registered")
+		return false
+	}
+
 	// Create new member object
 	const newMember = {
 		id: Date.now(),
@@ -128,6 +148,8 @@ function saveMemberData() {
 
 	// Save back to localStorage
 	localStorage.setItem("members", JSON.stringify(members))
+	
+	return true
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

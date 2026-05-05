@@ -28,7 +28,7 @@ const initStorage = () => {
 
 const renderStats = () => {
   let members = getMembers();
-  
+
   let classes = JSON.parse(localStorage.getItem("classes")) || [];
 
   document.getElementById("total-members").textContent = members.length;
