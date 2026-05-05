@@ -155,8 +155,21 @@
 						<div class="col">
 							<label for="phone">Phone</label>
 							<input id="phone" name="phone" type="tel" placeholder="+213 555 555 5555" />
+							<span id="phone-error" role="alert"></span>
 						</div>
 
+						<div class="col">
+							<label for="gender">Gender</label>
+							<select id="gender" name="gender" required>
+								<option value="">Select Gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+							<span id="gender-error" role="alert"></span>
+						</div>
+					</div>
+
+					<div class="row mt-12">
 						<div class="col">
 							<label for="dob">Date of Birth</label>
 							<input id="dob" name="dob" type="date" />
