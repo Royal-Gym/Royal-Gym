@@ -1,0 +1,369 @@
+/* Playfair Display */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../assets/fonts/playfair/playfair-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../assets/fonts/playfair/playfair-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../../assets/fonts/playfair/playfair-700-italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Inter */
+@font-face {
+  font-family: 'Inter';
+  src: url('../../assets/fonts/inter/inter-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../assets/fonts/inter/inter-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../assets/fonts/inter/inter-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto */
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/fonts/roboto/roboto-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/fonts/roboto/roboto-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/fonts/roboto/roboto-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--primary-dark);
+}
+
+.brand p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.admin-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: var(--primary-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.section-header p {
+  margin: 8px 0 0 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Table Section */
+.plans-table-section {
+  background: var(--bg-white);
+  border-top: 5px solid var(--primary-dark);
+  border-radius: 0.5rem;
+  padding: 24px;
+  box-shadow: 0 2px 4px var(--shadow-light);
+  overflow-x: auto;
+}
+
+.plans-table-section h3 {
+  margin: 0 0 20px 0;
+  font-family: 'Playfair Display', serif;
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.plans-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto', sans-serif;
+}
+
+.plans-table thead {
+  background-color: var(--primary-dark);
+}
+
+.plans-table th {
+  padding: 16px 12px;
+  text-align: left;
+  color: var(--accent-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.plans-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Applying Playfair Display font here specifically to plan names */
+.plans-table td:first-child {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.plans-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.plans-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action Buttons */
+.btn-edit,
+.btn-delete {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-edit {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-edit:hover {
+  background: var(--accent-gold);
+  color: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.btn-delete {
+  background: transparent;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+.btn-delete:hover {
+  background: #ff6b6b;
+  color: var(--bg-white);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
+}
+
+/* Add Plan Form Section */
+.add-plan-section {
+  background: var(--bg-white);
+  border-top: 5px solid var(--primary-dark);
+  border-radius: 0.5rem;
+  padding: 28px;
+  box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.add-plan-section h3 {
+  margin: 0 0 24px 0;
+  font-family: 'Playfair Display', serif;
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.add-plan-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 768px) {
+  .add-plan-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+/* Form Actions */
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-submit,
+.btn-cancel {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-submit {
+  background: var(--accent-gold);
+  color: var(--primary-dark);
+  flex: 0 1 auto;
+}
+
+.btn-submit:hover {
+  background: #b8860b;
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-cancel {
+  background: transparent;
+  color: #666;
+  border: 1px solid var(--border-light);
+  flex: 0 1 auto;
+}
+
+.btn-cancel:hover {
+  color: #333;
+  border-color: #999;
+  background: #f9f9f9;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: 20px;
+  margin-top: 40px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}

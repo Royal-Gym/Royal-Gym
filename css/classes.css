@@ -1,5 +1,4 @@
 @import "style.css";
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Roboto:wght@400;700&display=swap");
 
 *,
 *::before,
@@ -33,7 +32,7 @@ body {
 }
 
 .hero h1 {
-    font-family: "Playfair Display", sans-serif;
+    font-family: "Playfair Display", serif;
     font-size: 4rem;
     font-style: italic;
     color: var(--accent);
@@ -73,7 +72,7 @@ table {
 }
 
 caption {
-    font-family: "Playfair Display", sans-serif;
+    font-family: "Playfair Display", serif;
     font-size: 2.5rem;
     color: var(--accent);
     margin-bottom: 1.5rem;

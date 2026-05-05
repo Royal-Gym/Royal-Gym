@@ -1,4 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Roboto:wght@400;700&display=swap");
+/* Playfair Display */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../assets/fonts/playfair/playfair-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../assets/fonts/playfair/playfair-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../assets/fonts/playfair/playfair-700-italic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Roboto */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/roboto/roboto-300.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/roboto/roboto-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/roboto/roboto-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --primary: #071732;
@@ -36,7 +84,7 @@ header {
 /* Gym name and logo */
 header>a {
     color: var(--accent);
-    font-family: "Playfair Display", sans-serif;
+    font-family: "Playfair Display", serif;
     font-style: italic;
     font-size: 2rem;
     display: flex;
