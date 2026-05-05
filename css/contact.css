@@ -125,3 +125,75 @@ footer {
     padding: 15px;
     margin-top: 30px;
 }
+
+/* need explanation only the media queries */
+
+/* ── Tablet ── */
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    input,
+    textarea {
+        font-size: 0.95rem;
+    }
+}
+
+/* ── Mobile ── */
+@media screen and (max-width: 480px) {
+    main {
+        width: 100%;
+        padding: 0 10px;
+        margin: 15px auto;
+    }
+
+    section {
+        padding: 15px 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    input,
+    textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    .map-placeholder {
+        padding: 30px 15px;
+    }
+
+    address {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}

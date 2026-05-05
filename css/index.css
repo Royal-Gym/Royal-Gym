@@ -210,7 +210,7 @@ body {
 }
 
 .elite {
-	border-color: var(--accent) ;
+	border-color: var(--accent);
 }
 
 .opening-hours {
@@ -302,4 +302,113 @@ footer>p {
 	color: var(--white);
 	font-size: 0.9rem;
 	margin-top: 2rem;
+}
+
+/* //  need explanation  */
+
+/* ── Tablet ── */
+@media screen and (max-width: 768px) {
+	.hero>h1 {
+		font-size: 4rem;
+	}
+
+	.tagline {
+		font-size: 1.3rem;
+		padding: 1rem;
+	}
+
+	.hero a {
+		padding: 1rem 2rem;
+		font-size: 0.95rem;
+	}
+
+	.facilities-container {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.membership-cards-container {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.facilities h2,
+	.membership h2 {
+		font-size: 2.2rem;
+	}
+
+	table {
+		width: 90%;
+	}
+
+	.contact-details address {
+		font-size: 0.9rem;
+	}
+}
+
+/* ── Mobile ── */
+@media screen and (max-width: 480px) {
+	.hero {
+		min-height: 45vh;
+		padding: 1.5rem 1rem;
+	}
+
+	.hero>h1 {
+		font-size: 2.5rem;
+	}
+
+	.tagline {
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+
+	.hero a {
+		padding: 0.8rem 1.5rem;
+		font-size: 0.9rem;
+	}
+
+	.facilities {
+		padding: 2rem 1rem;
+	}
+
+	.facilities-container {
+		grid-template-columns: 1fr;
+	}
+
+	.facility-card {
+		padding: 1.5rem;
+		border-radius: 1.5rem;
+	}
+
+	.membership {
+		padding: 1.5rem 1rem;
+	}
+
+	.membership-cards-container {
+		grid-template-columns: 1fr;
+	}
+
+	.membership-card {
+		padding: 1.5rem;
+	}
+
+	table {
+		width: 100%;
+		font-size: 0.85rem;
+	}
+
+	th,
+	td {
+		padding: 8px;
+	}
+
+	.opening-hours {
+		font-size: 1.4rem;
+	}
+
+	footer {
+		padding-top: 2rem;
+	}
+
+	.contact-details h2 {
+		font-size: 1.5rem;
+	}
 }

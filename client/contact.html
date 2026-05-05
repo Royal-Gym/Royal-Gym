@@ -15,6 +15,7 @@
             <span class="name">Royal Gym</span>
             <img src="../assets/images/logo.png" alt="Royal Gym Logo" class="logo" />
         </a>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -126,6 +127,11 @@
         <p>&copy; 2026 Gym Management System. All rights reserved.</p>
     </footer>
     <script src="../js/contact.js"></script>
+    <script> //need explanation
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('header nav').classList.toggle('open');
+        });
+    </script>
 </body>
 
 </html>

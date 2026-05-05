@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Gym Classes | Royal Gym</title>
+	<link rel="stylesheet" href="../css/classes.css" />
+</head>
+
+<body>
+	<header>
+		<a href="../index.html">
+			Royal Gym
+			<img src="../assets/images/logo.png" alt="Royal Gym Logo" class="logo" />
+		</a>
+		<button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+		<nav>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="./classes.html" class="active">Classes</a></li>
+				<li><a href="./membership.html">Membership</a></li>
+				<li><a href="./trainers.html">Trainers</a></li>
+				<li><a href="./contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero">
+			<h1>Our Fitness Classes</h1>
+			<p class="tagline">
+				Find the perfect class to reach your fitness goals.
+			</p>
+		</section>
+
+		<section id="filters" class="filters-section">
+			<h3>Filter Classes</h3>
+			<p>
+				Filtering options (Trainer, Day, Difficulty) will be
+				available soon.
+			</p>
+		</section>
+
+		<section class="schedule-container">
+			<div class="table-wrapper">
+				<table>
+					<caption>
+						Weekly Class Schedule
+					</caption>
+					<thead>
+						<tr>
+							<th>Class Name</th>
+							<th>Trainer</th>
+							<th>Day</th>
+							<th>Time</th>
+							<th>Duration</th>
+							<th>Level</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-label="Class">Strength Training</td>
+							<td data-label="Trainer">Yacine alikhouja</td>
+							<td data-label="Day">Monday</td>
+							<td data-label="Time">08:00 AM</td>
+							<td data-label="Duration">60 mins</td>
+							<td data-label="Level">Beginner</td>
+							<td>
+								<a href="./trainers.html" class="btn-details">Details</a>
+							</td>
+						</tr>
+						<tr>
+							<td data-label="Class">CrossFit</td>
+							<td data-label="Trainer">Paul Miller</td>
+							<td data-label="Day">Tuesday</td>
+							<td data-label="Time">05:00 PM</td>
+							<td data-label="Duration">45 mins</td>
+							<td data-label="Level">Advanced</td>
+							<td>
+								<a href="./trainers.html" class="btn-details">Details</a>
+							</td>
+						</tr>
+						<tr>
+							<td data-label="Class">Cardio Fitness</td>
+							<td data-label="Trainer">Achour iskander</td>
+							<td data-label="Day">Wednesday</td>
+							<td data-label="Time">10:00 AM</td>
+							<td data-label="Duration">90 mins</td>
+							<td data-label="Level">Intermediate</td>
+							<td>
+								<a href="./trainers.html" class="btn-details">Details</a>
+							</td>
+						</tr>
+						<tr>
+							<td data-label="Class">Personal Training</td>
+							<td data-label="Trainer">Black Mark</td>
+							<td data-label="Day">Wednesday</td>
+							<td data-label="Time">10:00 AM</td>
+							<td data-label="Duration">90 mins</td>
+							<td data-label="Level">Intermediate</td>
+							<td>
+								<a href="./trainers.html" class="btn-details">Details</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2026 Royale Gym. All rights reserved.</p>
+	</footer>
+	<script>
+		document.querySelector('.menu-toggle').addEventListener('click', function () {
+			document.querySelector('header nav').classList.toggle('open');
+		});
+	</script>
+</body>
+
+</html>

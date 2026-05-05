@@ -171,3 +171,91 @@ footer {
     transform: translateY(0);
     transition: all 0.6s ease;
 }
+
+/* need explanation only the media queries */
+
+/* ── Tablet ── */
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .trainer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    figcaption {
+        font-size: 1.2rem;
+    }
+
+    .work-with-us {
+        padding: 30px 20px;
+    }
+}
+
+/* ── Mobile ── */
+@media screen and (max-width: 480px) {
+    main {
+        width: 100%;
+        padding: 0 10px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+
+    .trainer-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    figure img {
+        height: 200px;
+    }
+
+    figcaption {
+        font-size: 1.1rem;
+    }
+
+    article h3 {
+        font-size: 1rem;
+    }
+
+    article p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    article a {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .work-with-us {
+        padding: 25px 15px;
+    }
+
+    .work-with-us a {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    address {
+        padding: 20px 15px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 15px 10px;
+    }
+}

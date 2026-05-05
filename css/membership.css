@@ -25,15 +25,80 @@ body {
 	margin-top: 30px;
 }
 
+/* need explanation only the media queries*/
+
 @media (max-width: 900px) {
 	.plans-grid {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		margin-left: 20px;
+		margin-right: 20px;
 	}
 }
 
 @media (max-width: 600px) {
 	.plans-grid {
 		grid-template-columns: 1fr;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.plan-title {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+
+	.plan-title h3 {
+		font-size: 1.5rem;
+	}
+
+	.plan-cta {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
+	}
+
+	.btn-ghost {
+		text-align: center;
+	}
+
+	.register {
+		max-width: 100%;
+		padding: 0 10px;
+	}
+
+	form {
+		padding: 12px;
+	}
+
+	.row {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.col {
+		min-width: 100%;
+	}
+
+	.custom-controls {
+		flex-direction: column;
+	}
+
+	.submit-row {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.submit-row .btn-ghost {
+		width: 100%;
+	}
+
+	.payments {
+		justify-content: center;
+	}
+
+	#register-heading {
+		font-size: 1.4rem;
 	}
 }
 
@@ -285,6 +350,7 @@ input.input--success {
 		opacity: 0;
 		transform: translateY(-4px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -318,11 +384,9 @@ textarea {
 		border-color 0.12s ease;
 	color: var(--white);
 	font-weight: 700;
-	background: linear-gradient(
-		180deg,
-		rgba(255, 255, 255, 0.01),
-		rgba(255, 255, 255, 0.005)
-	);
+	background: linear-gradient(180deg,
+			rgba(255, 255, 255, 0.01),
+			rgba(255, 255, 255, 0.005));
 }
 
 .custom input {
@@ -350,13 +414,13 @@ textarea {
 	border-radius: 50%;
 }
 
-.custom input:checked + .control {
+.custom input:checked+.control {
 	background: linear-gradient(90deg, var(--tertiary), #b88b2f);
 	border-color: transparent;
 	box-shadow: 0 6px 18px rgba(212, 175, 55, 0.14);
 }
 
-.custom input:checked + .control::after {
+.custom input:checked+.control::after {
 	content: "";
 	position: absolute;
 	left: 50%;
